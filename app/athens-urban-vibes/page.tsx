@@ -92,6 +92,7 @@ export default function MironBuildingLobbyPage() {
                   src={apt.image}
                   alt={apt.name}
                   fill
+                  unoptimized // ← התיקון שמונע שגיאות אופטימיזציה לתמונות חדשות
                   className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#141414]/40 to-transparent" />
@@ -129,7 +130,3 @@ export default function MironBuildingLobbyPage() {
     </main>
   );
 }
-```
-
----
-
