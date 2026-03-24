@@ -1,70 +1,88 @@
 "use client";
 
-import React from 'react';
+import { useState } from 'react';
+import Image from 'next/image';
 
-export default function Home() {
-  const handleComingSoon = () => {
-    alert("We are working on our direct booking engine to bring you the best rates! For now, please use the Booking.com or Airbnb links on our apartment pages. Thank you for your patience!");
-  };
+export default function HomePage() {
+  // ניהול ה-Lightbox (הגדלת התמונות)
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentImg, setCurrentImg] = useState('');
+
+  // רשימת התמונות של מירון 18 (תוודא שהן נמצאות בתיקייה public/miron18)
+  const mironImages = [
+    '/miron18/img1.jpg',
+    '/miron18/img2.jpg',
+    '/miron18/img3.jpg',
+    '/miron18/img4.jpg',
+    '/miron18/img5.jpg',
+    '/miron18/img6.jpg',
+  ];
 
   return (
-    <div className="min-h-screen bg-[#1A1A1A] text-white font-sans text-left">
-      {/* תפריט עליון מעודכן */}
-      <nav className="flex justify-between items-center px-6 py-4 border-b border-white/10 sticky top-0 bg-[#1A1A1A]/80 backdrop-blur-md z-50">
-        <div className="flex items-center gap-4">
-          <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
-          <span className="text-lg font-bold tracking-tighter uppercase">Urban Vibes</span>
-        </div>
+    <main className="min-h-screen bg-gray-50 text-gray-900 font-sans">
+      
+      {/* כותרת האתר */}
+      <header className="bg-white shadow-sm py-8 px-4 text-center">
+        <h1 className="text-4xl font-bold text-blue-900">Athens Urban Vibes</h1>
+        <p className="text-gray-600 mt-2 italic text-lg">Experience Athens like a local</p>
+      </header>
+
+      <section className="max-w-6xl mx-auto py-12 px-4">
+        <h2 className="text-3xl font-semibold mb-8 border-b-2 border-blue-200 pb-2">Miron 18 - Luxury Apartment</h2>
         
-        {/* כפתור סטטוס בקרוב */}
-        <button 
-          onClick={handleComingSoon}
-          className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold border border-white/10 px-4 py-2 rounded text-gray-500 hover:text-blue-400 hover:border-blue-400/30 transition-all"
+        {/* גריד התמונות החדש */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {mironImages.map((src, index) => (
+            <div 
+              key={index} 
+              className="group relative h-72 cursor-pointer overflow-hidden rounded-2xl shadow-md bg-gray-200"
+              onClick={() => { 
+                setCurrentImg(src); 
+                setIsOpen(true); 
+              }}
+            >
+              <Image 
+                src={src} 
+                alt={`Miron 18 gallery ${index + 1}`} 
+                fill 
+                className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" 
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                <span className="text-white opacity-0 group-hover:opacity-100 text-sm font-medium border border-white px-4 py-2 rounded-full">
+                  Click to enlarge
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* --- החלון הקופץ (Lightbox) --- */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4 animate-in fade-in duration-300"
+          onClick={() => setIsOpen(false)}
         >
-          Direct Booking: Coming Soon
-        </button>
-      </nav>
-
-      {/* כותרת מרכזית */}
-      <section className="text-center py-24 px-6">
-        <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tighter uppercase italic">
-          Boutique <span className="text-blue-400">Stays.</span>
-        </h1>
-        <p className="text-gray-400 uppercase tracking-[0.4em] text-[10px]">Athens, Greece</p>
-      </section>
-
-      {/* כרטיסי ניווט */}
-      <section className="py-12 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-        <a href="/athens-urban-vibes" className="group no-underline relative aspect-[3/4] bg-[#111] overflow-hidden rounded-md border border-white/10 shadow-2xl">
-          <video src="/miron.mp4" autoPlay loop muted playsInline className="object-cover w-full h-full opacity-80 transition-transform duration-700 group-hover:scale-105" />
-          <div className="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-black to-transparent w-full">
-             <p className="text-blue-400 font-bold text-[10px] uppercase tracking-widest mb-2">Building One</p>
-             <h3 className="text-3xl font-bold text-white uppercase italic tracking-tighter">Aura Apartments</h3>
+          {/* כפתור סגירה (X) */}
+          <button className="absolute top-8 right-8 text-white text-5xl font-light hover:text-blue-400 transition-colors">
+            &times;
+          </button>
+          
+          <div className="relative w-full max-w-6xl h-[85vh]">
+            <Image 
+              src={currentImg} 
+              alt="Enlarged View" 
+              fill 
+              className="object-contain" 
+            />
           </div>
-        </a>
+        </div>
+      )}
 
-        <a href="/athenian-sky-retreat" className="group no-underline relative aspect-[3/4] bg-[#111] overflow-hidden rounded-md border border-white/10 shadow-2xl">
-          <img src="/retreat.jpg" alt="Retreat" className="object-cover w-full h-full opacity-80 transition-transform duration-700 group-hover:scale-105" />
-          <div className="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-black to-transparent w-full">
-             <p className="text-orange-400 font-bold text-[10px] uppercase tracking-widest mb-2">Signature Suite</p>
-             <h3 className="text-3xl font-bold text-white uppercase italic tracking-tighter">Sky Retreat</h3>
-          </div>
-        </a>
-      </section>
-
-      {/* הסיפור שלנו */}
-      <section className="py-32 px-6 max-w-3xl mx-auto text-center border-t border-white/5">
-        <h2 className="text-blue-400 font-bold text-[10px] uppercase tracking-[0.4em] mb-10">Our Story</h2>
-        <p className="text-2xl md:text-4xl font-light leading-snug italic text-gray-200">
-          "At Athens Urban Vibes, our mission is simple: **we create spaces designed to make people smile.** Every detail of our boutique renovations is crafted to turn your stay into a joyful memory."
-        </p>
-      </section>
-
-      {/* פוטר */}
-      <footer className="py-20 text-center border-t border-white/5 mt-20 opacity-60">
-        <h2 className="text-2xl md:text-4xl font-medium mb-4 uppercase tracking-[0.2em] italic text-white/90">Making people smile</h2>
-        <p className="text-[10px] uppercase tracking-[0.6em] text-gray-500">Athens Urban Vibes Hospitality Group</p>
+      {/* פוטר פשוט */}
+      <footer className="bg-blue-900 text-white py-12 mt-12 text-center">
+        <p>© 2026 Athens Urban Vibes | Quality Stays in Athens</p>
       </footer>
-    </div>
+    </main>
   );
 }
