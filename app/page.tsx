@@ -1,7 +1,11 @@
+"use client";
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function HomePage() {
+  const [showComingSoon, setShowComingSoon] = useState(false);
+
   return (
     <main className="min-h-screen bg-[#0e0e0e] text-white font-sans overflow-x-hidden">
 
@@ -12,25 +16,53 @@ export default function HomePage() {
       </div>
 
       {/* Header */}
-      <header className="relative z-10 flex flex-col items-center pt-20 pb-12 px-4 text-center">
-        <div className="mb-6 flex items-center gap-3">
+      <header className="relative z-10 flex flex-col items-center pt-16 pb-8 px-4 text-center">
+        
+        {/* Logo */}
+        <div className="mb-6">
+          <Image
+            src="/logo.png"
+            alt="Athens Urban Vibes"
+            width={180}
+            height={180}
+            className="object-contain"
+          />
+        </div>
+
+        {/* Tagline */}
+        <div className="flex items-center gap-3 mb-4">
           <div className="w-8 h-[1px] bg-[#D4AF37]" />
           <span className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-semibold">Athens, Greece</span>
           <div className="w-8 h-[1px] bg-[#D4AF37]" />
         </div>
-        <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white mb-4 leading-none">
-          Athens<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#f5d97a]">
-            Urban Vibes
-          </span>
-        </h1>
-        <p className="text-zinc-400 text-lg font-light tracking-widest uppercase mt-4">
+        <p className="text-zinc-400 text-base font-light tracking-widest uppercase mb-2">
           Curated Stays · Authentic Experiences
         </p>
+        <p className="text-zinc-500 text-sm font-light max-w-xl mx-auto leading-relaxed mt-2">
+          Five boutique apartments and a rooftop retreat in the heart of Athens. 
+          Fully renovated, self check-in, 7 minutes from the metro — 
+          designed to make every guest smile.
+        </p>
+
+        {/* Direct Booking Button — Coming Soon */}
+        <div className="mt-8 flex flex-col items-center gap-2">
+          <button
+            onClick={() => setShowComingSoon(!showComingSoon)}
+            className="inline-flex items-center gap-2 px-8 py-3 bg-[#D4AF37] hover:bg-[#f5d97a] text-black font-bold text-xs tracking-widest uppercase rounded-full transition-all duration-300 shadow-lg shadow-[#D4AF37]/20"
+          >
+            ✉️ Direct Booking
+          </button>
+          {showComingSoon && (
+            <div className="mt-2 px-6 py-3 bg-zinc-900 border border-[#D4AF37]/30 rounded-2xl text-center">
+              <p className="text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-1">Coming Soon</p>
+              <p className="text-zinc-400 text-xs">Direct booking will be available shortly.<br />In the meantime, book via Airbnb or Booking.com below.</p>
+            </div>
+          )}
+        </div>
       </header>
 
       {/* Property Cards */}
-      <section className="relative z-10 max-w-6xl mx-auto px-4 pb-24 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="relative z-10 max-w-6xl mx-auto px-4 pb-24 grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
 
         {/* Miron 18 */}
         <Link href="/athens-urban-vibes" className="group block">
@@ -82,8 +114,8 @@ export default function HomePage() {
         </Link>
       </section>
 
-      {/* Why section */}
-      <section className="relative z-10 border-t border-zinc-800 py-20 px-4">
+      {/* Why us strip */}
+      <section className="relative z-10 border-t border-zinc-800 py-16 px-4">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
           {[
             { icon: '📍', label: '7 min from Metro' },
@@ -106,3 +138,12 @@ export default function HomePage() {
     </main>
   );
 }
+```
+
+---
+
+**אחרי שהדבקת — הרץ:**
+```
+git add .
+git commit -m "Homepage: logo, description, coming soon button"
+git push
