@@ -77,14 +77,21 @@ export default function HomePage() {
               <video
                 ref={videoRef}
                 src="/miron.mp4"
-                autoPlay loop muted playsInline
+                autoPlay 
+                loop 
+                muted={muted} 
+                playsInline
                 className="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-              {/* Mute button */}
+              {/* Mute button מתוקן */}
               <button
-                onClick={(e) => { e.preventDefault(); toggleMute(); }}
+                onClick={(e) => { 
+                  e.preventDefault(); 
+                  e.stopPropagation(); // עוצר את המעבר לדף הבא כשלוחצים על הרמקול
+                  toggleMute(); 
+                }}
                 className="absolute top-4 right-4 z-20 bg-black/60 hover:bg-black/90 backdrop-blur-sm text-white text-lg w-10 h-10 rounded-full flex items-center justify-center border border-white/20 transition-all"
                 title={muted ? "Unmute" : "Mute"}
               >
@@ -154,5 +161,3 @@ export default function HomePage() {
     </main>
   );
 }
-```
-
