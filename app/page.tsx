@@ -156,10 +156,3 @@ export default function HomePage() {
 }
 ```
 
-**שלב 3** — שמור את הקובץ: **Ctrl+S**
-
-**שלב 4** — הרץ ב-Terminal:
-```
-git add .
-git commit -m "Homepage fix: logo, dark theme, mute button"
-git push
