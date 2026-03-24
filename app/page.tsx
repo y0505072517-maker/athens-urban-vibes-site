@@ -23,24 +23,35 @@ export default function HomePage() {
         <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#D4AF37]/10 blur-[120px]" />
       </div>
 
-      <header className="relative z-10 flex flex-col items-center pt-16 pb-8 px-4 text-center">
-        <div className="mb-6">
-          <Image src="/logo.png" alt="Athens Urban Vibes" width={180} height={180} className="object-contain" />
-        </div>
-        <div className="flex items-center gap-3 mb-4">
+      <header className="relative z-10 flex flex-col items-center pt-12 pb-8 px-4 text-center">
+
+        {/* Logo */}
+        <Image
+          src="/logo.png"
+          alt="Athens Urban Vibes"
+          width={160}
+          height={160}
+          className="object-contain mb-6"
+        />
+
+        <div className="flex items-center gap-3 mb-3">
           <div className="w-8 h-[1px] bg-[#D4AF37]" />
           <span className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-semibold">Athens, Greece</span>
           <div className="w-8 h-[1px] bg-[#D4AF37]" />
         </div>
-        <p className="text-zinc-400 text-base font-light tracking-widest uppercase mb-2">
+
+        <p className="text-zinc-300 text-base font-light tracking-widest uppercase mb-3">
           Curated Stays · Authentic Experiences
         </p>
-        <p className="text-zinc-500 text-sm font-light max-w-xl mx-auto leading-relaxed mt-2">
-          Five boutique apartments and a rooftop retreat in the heart of Athens.
-          Fully renovated, self check-in, 7 minutes from the metro —
-          designed to make every guest smile.
+
+        <p className="text-zinc-500 text-sm font-light max-w-lg mx-auto leading-relaxed">
+          Five boutique apartments and a rooftop retreat in the heart of Athens —
+          fully renovated, self check-in, 7 minutes from the metro.
+          Designed to make every guest smile.
         </p>
-        <div className="mt-8 flex flex-col items-center gap-2">
+
+        {/* Direct Booking Button */}
+        <div className="mt-8 flex flex-col items-center gap-3">
           <button
             onClick={() => setShowComingSoon(!showComingSoon)}
             className="inline-flex items-center gap-2 px-8 py-3 bg-[#D4AF37] hover:bg-[#f5d97a] text-black font-bold text-xs tracking-widest uppercase rounded-full transition-all duration-300 shadow-lg shadow-[#D4AF37]/20"
@@ -48,17 +59,18 @@ export default function HomePage() {
             ✉️ Direct Booking
           </button>
           {showComingSoon && (
-            <div className="mt-2 px-6 py-3 bg-zinc-900 border border-[#D4AF37]/30 rounded-2xl text-center">
-              <p className="text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-1">Coming Soon</p>
-              <p className="text-zinc-400 text-xs">Direct booking will be available shortly.<br />In the meantime, book via Airbnb or Booking.com below.</p>
+            <div className="px-6 py-4 bg-zinc-900 border border-[#D4AF37]/30 rounded-2xl text-center max-w-xs">
+              <p className="text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-1">Coming Soon ✨</p>
+              <p className="text-zinc-400 text-xs leading-relaxed">Direct booking will be available shortly. In the meantime, book via Airbnb or Booking.com.</p>
             </div>
           )}
         </div>
       </header>
 
-      <section className="relative z-10 max-w-6xl mx-auto px-4 pb-24 grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+      {/* Cards */}
+      <section className="relative z-10 max-w-6xl mx-auto px-4 pb-24 grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
 
-        {/* Miron 18 — עם כפתור מיוט */}
+        {/* Miron 18 */}
         <Link href="/athens-urban-vibes" className="group block">
           <div className="relative rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#D4AF37]/50 transition-all duration-500 shadow-2xl">
             <div className="relative aspect-[4/3] bg-black overflow-hidden">
@@ -70,10 +82,11 @@ export default function HomePage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-              {/* כפתור Mute/Unmute */}
+              {/* Mute button */}
               <button
                 onClick={(e) => { e.preventDefault(); toggleMute(); }}
                 className="absolute top-4 right-4 z-20 bg-black/60 hover:bg-black/90 backdrop-blur-sm text-white text-lg w-10 h-10 rounded-full flex items-center justify-center border border-white/20 transition-all"
+                title={muted ? "Unmute" : "Mute"}
               >
                 {muted ? '🔇' : '🔊'}
               </button>
@@ -85,7 +98,7 @@ export default function HomePage() {
                   Five fully renovated apartments in the heart of Athens. 7 minutes from the metro.
                 </p>
                 <div className="mt-6 inline-flex items-center gap-2 text-white text-xs tracking-widest uppercase border border-white/30 px-5 py-2.5 rounded-full group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:text-black transition-all duration-300 font-semibold">
-                  Explore Apartments <span className="text-base">→</span>
+                  Explore Apartments →
                 </div>
               </div>
             </div>
@@ -110,7 +123,7 @@ export default function HomePage() {
                   A private rooftop sanctuary with sweeping views over Athens and the surrounding mountains.
                 </p>
                 <div className="mt-6 inline-flex items-center gap-2 text-white text-xs tracking-widest uppercase border border-white/30 px-5 py-2.5 rounded-full group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:text-black transition-all duration-300 font-semibold">
-                  Discover the Retreat <span className="text-base">→</span>
+                  Discover the Retreat →
                 </div>
               </div>
             </div>
@@ -118,6 +131,7 @@ export default function HomePage() {
         </Link>
       </section>
 
+      {/* Strip */}
       <section className="relative z-10 border-t border-zinc-800 py-16 px-4">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
           {[
@@ -142,10 +156,10 @@ export default function HomePage() {
 }
 ```
 
----
+**שלב 3** — שמור את הקובץ: **Ctrl+S**
 
-**הרץ:**
+**שלב 4** — הרץ ב-Terminal:
 ```
 git add .
-git commit -m "Add mute toggle button to video"
+git commit -m "Homepage fix: logo, dark theme, mute button"
 git push
