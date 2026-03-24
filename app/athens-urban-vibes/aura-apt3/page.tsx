@@ -3,64 +3,143 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function PremiumAuraApt3Page() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [currentImg, setCurrentImg] = useState('');
+const APT = {
+  number: 3,
+  name: "Aura Apartment 3",
+  tagline: "Sun-Drenched Front Apartment",
+  subtitle: "FLOODED WITH NATURAL LIGHT · 4K SMART TV · ESPRESSO MACHINE",
+  description: `The brightest apartment in the building — this front-facing home fills with golden light from morning to afternoon. A bold teal sofa, lush indoor plants and warm wood tones create a space that feels alive and welcoming. 4K Smart TV, espresso machine, fully equipped kitchen and a balcony make this equally perfect for a relaxed city break or a longer stay. 7 minutes on foot to the metro.`,
+  guests: 4,
+  beds: 1,
+  baths: 1,
+  sleeps: "1 Queen Bed",
+  bookingUrl: "https://www.booking.com/hotel/gr/athens-urban-vibes-3-bright-front-apt-sunny.he.html",
+  airbnbUrl: "https://he.airbnb.com/rooms/1457136143596427521",
+  amenities: [
+    { icon: "☀️", label: "Sun-Drenched" },
+    { icon: "📺", label: "4K Smart TV" },
+    { icon: "☕", label: "Espresso Machine" },
+    { icon: "❄️", label: "Air Conditioning" },
+    { icon: "📶", label: "Fast Wi-Fi" },
+    { icon: "🧺", label: "Washing Machine" },
+    { icon: "🌿", label: "Balcony" },
+    { icon: "🔑", label: "Smart Lock" },
+  ],
+  images: [
+    '/miron18/apt3/img1.jpg',
+    '/miron18/apt3/img2.jpg',
+    '/miron18/apt3/img3.jpg',
+    '/miron18/apt3/img4.jpg',
+    '/miron18/apt3/img5.jpg',
+    '/miron18/apt3/img6.jpg',
+  ],
+};
 
-  const images = Array.from({ length: 6 }).map((_, i) => `https://via.placeholder.com/800x600/121212/D4AF37?text=Aura+3+Image+${i + 1}`);
+export default function AuraApt3Page() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImg, setCurrentImg] = useState('');
+  const openLightbox = (src: string) => { setCurrentImg(src); setLightboxOpen(true); };
 
   return (
-    <main className="min-h-screen bg-[#0d0d0d] text-white font-sans selection:bg-[#D4AF37] selection:text-black pb-20">
-      <nav className="flex justify-between items-center p-6 border-b border-zinc-800 text-xs font-bold tracking-widest text-zinc-500 uppercase">
-        <Link href="/athens-urban-vibes" className="hover:text-white transition-colors">
-          &larr; MIRON 18 BUILDING
+    <main className="min-h-screen bg-[#0e0e0e] text-white font-sans pb-24 selection:bg-[#D4AF37] selection:text-black">
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#1E3A8A]/15 blur-[150px] rounded-full" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#D4AF37]/8 blur-[120px] rounded-full" />
+      </div>
+
+      <nav className="relative z-10 flex items-center justify-between px-6 py-5 border-b border-zinc-800">
+        <Link href="/athens-urban-vibes" className="text-zinc-400 hover:text-[#D4AF37] transition-colors text-xs tracking-widest uppercase font-semibold flex items-center gap-2">
+          ← Miron 18
         </Link>
-        <span className="text-blue-500">RESIDENCE 3</span> {/* כותרת נכונה */}
+        <span className="text-[#D4AF37] text-xs tracking-[0.3em] uppercase font-semibold">Residence {APT.number}</span>
+        <div className="w-20" />
       </nav>
 
-      <header className="max-w-7xl mx-auto px-6 pt-20 pb-12">
-        <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase mb-4 leading-none">
-          AURA<br/><span className="text-blue-500">APARTMENT 3</span> {/* כותרת נכונה */}
+      <header className="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-10">
+        <div className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-semibold mb-4">{APT.tagline}</div>
+        <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-none mb-4">
+          Aura<br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#f5d97a]">
+            Apartment 3
+          </span>
         </h1>
-        <p className="text-sm font-semibold tracking-[0.2em] text-zinc-400 uppercase">
-          MINIMALIST STUDIO • SMART DESIGN • BACKYARD VIEW
-        </p>
+        <p className="text-zinc-500 text-xs tracking-[0.2em] uppercase font-semibold mt-2">{APT.subtitle}</p>
+        <div className="flex gap-6 mt-8 text-zinc-400 text-sm">
+          <span>👥 {APT.guests} guests</span>
+          <span>🛏 {APT.beds} bedroom</span>
+          <span>🚿 {APT.baths} bath</span>
+          <span>🛌 {APT.sleeps}</span>
+        </div>
       </header>
 
-      <section className="max-w-7xl mx-auto px-6 mb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {images.map((src, index) => (
-            <div key={index} className="relative aspect-[4/3] bg-zinc-900 rounded-sm overflow-hidden cursor-pointer group" onClick={() => { setCurrentImg(src); setIsOpen(true); }}>
-              <Image src={src} alt={`Aura Apartment 3 Image ${index + 1}`} fill className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" unoptimized />
+      <section className="relative z-10 max-w-7xl mx-auto px-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {APT.images.map((src, i) => (
+            <div key={i} onClick={() => openLightbox(src)} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-zinc-900 cursor-pointer group border border-zinc-800 hover:border-[#D4AF37]/50 transition-all">
+              <Image src={src} alt={`${APT.name} photo ${i + 1}`} fill className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" unoptimized />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
             </div>
           ))}
+        </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-16 border-t border-zinc-800 pt-16">
+      <section className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12 border-t border-zinc-800 pt-16">
         <div className="lg:col-span-2">
-          <h2 className="text-blue-500 text-sm font-bold tracking-[0.2em] uppercase mb-6">The Minimalist Space</h2>
-          <p className="text-2xl md:text-3xl font-light text-zinc-200 leading-relaxed italic mb-16 max-w-4xl">
-            "Designed for efficiency and style. Our Minimalist Studio offers smart living in a quiet urban setting."
-          </p>
-          <h3 className="text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase mb-8">Premium Amenities</h3>
-          <div className="grid grid-cols-2 gap-y-10 gap-x-6 text-sm font-medium tracking-wide text-zinc-200 uppercase">
-            <div className="flex items-center gap-4"><span className="text-2xl">📶</span> Fast Wi-Fi</div>
-            <div className="flex items-center gap-4"><span className="text-2xl">☕</span> Nespresso</div>
-            <div className="flex items-center gap-4"><span className="text-2xl">📺</span> Smart TV</div>
+          <h2 className="text-[#D4AF37] text-xs tracking-[0.3em] uppercase font-bold mb-6">About This Space</h2>
+          <p className="text-xl md:text-2xl font-light text-zinc-200 leading-relaxed mb-12 max-w-3xl">{APT.description}</p>
+          <h3 className="text-xs tracking-[0.3em] uppercase font-bold text-zinc-500 mb-8">Amenities</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {APT.amenities.map((a) => (
+              <div key={a.label} className="flex flex-col items-center gap-2 bg-zinc-900/60 border border-zinc-800 rounded-xl p-4 text-center">
+                <span className="text-2xl">{a.icon}</span>
+                <span className="text-zinc-300 text-xs uppercase tracking-wider font-semibold">{a.label}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-14 border-t border-zinc-800 pt-10">
+            <h3 className="text-xs tracking-[0.3em] uppercase font-bold text-zinc-500 mb-6">Good to Know</h3>
+            <div className="grid grid-cols-2 gap-4 text-zinc-400 text-sm">
+              <div>🔑 Self check-in · Smart lock</div>
+              <div>🚗 Free street parking</div>
+              <div>🚇 7 min walk to Metro</div>
+              <div>🧳 Long stays welcome</div>
+            </div>
           </div>
         </div>
-        <div className="bg-[#141414] p-10 rounded-2xl border border-zinc-800 sticky top-10 h-fit">
-          <h3 className="text-center text-xs font-bold tracking-[0.2em] text-zinc-400 uppercase mb-10">Secure Your Stay</h3>
-          <div className="flex flex-col gap-5">
-            <a href="#" className="w-full py-4 bg-[#003580] hover:bg-[#002255] text-white text-center font-bold text-xs tracking-widest uppercase rounded-sm transition-colors">Reserve on Booking.com</a>
-            <a href="#" className="w-full py-4 bg-[#FF5A5F] hover:bg-[#E04040] text-white text-center font-bold text-xs tracking-widest uppercase rounded-sm transition-colors">Book on Airbnb</a>
+
+        <div className="lg:sticky lg:top-8 h-fit">
+          <div className="bg-[#141414] border border-zinc-700 rounded-2xl p-8 shadow-2xl">
+            <div className="text-center mb-8">
+              <div className="text-[#D4AF37] text-xs tracking-[0.3em] uppercase font-bold mb-1">Secure Your Stay</div>
+              <h3 className="text-white text-xl font-bold">{APT.name}</h3>
+              <p className="text-zinc-500 text-xs mt-1">{APT.tagline}</p>
+            </div>
+            <div className="flex flex-col gap-4">
+              {APT.airbnbUrl && (
+                <a href={APT.airbnbUrl} target="_blank" rel="noopener noreferrer" className="w-full py-4 bg-[#FF5A5F] hover:bg-[#e04040] text-white text-center font-bold text-xs tracking-widest uppercase rounded-xl transition-all duration-300 flex items-center justify-center gap-2">
+                  <span>🏠</span> Book on Airbnb
+                </a>
+              )}
+              {APT.bookingUrl && (
+                <a href={APT.bookingUrl} target="_blank" rel="noopener noreferrer" className="w-full py-4 bg-[#003580] hover:bg-[#002255] text-white text-center font-bold text-xs tracking-widest uppercase rounded-xl transition-all duration-300 flex items-center justify-center gap-2">
+                  <span>📅</span> Reserve on Booking.com
+                </a>
+              )}
+            </div>
+            <div className="mt-6 pt-6 border-t border-zinc-800 text-center">
+              <p className="text-zinc-600 text-xs">Hosted by <span className="text-zinc-400 font-semibold">Yuval</span> · Superhost</p>
+              <p className="text-zinc-600 text-xs mt-1">Self check-in · Free cancellation</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {isOpen && (
-        <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 backdrop-blur-sm" onClick={() => setIsOpen(false)}>
-          <button className="absolute top-6 right-8 text-zinc-500 hover:text-white text-5xl font-extralight transition-colors">&times;</button>
-          <div className="relative w-full max-w-6xl h-[85vh]"><Image src={currentImg} alt="Enlarged" fill className="object-contain" unoptimized /></div>
+      {lightboxOpen && (
+        <div className="fixed inset-0 bg-black/97 z-50 flex items-center justify-center p-4 backdrop-blur-sm" onClick={() => setLightboxOpen(false)}>
+          <button className="absolute top-6 right-8 text-zinc-500 hover:text-white text-5xl font-thin transition-colors">×</button>
+          <div className="relative w-full max-w-5xl h-[85vh]">
+            <Image src={currentImg} alt="Enlarged view" fill className="object-contain" />
+          </div>
         </div>
       )}
     </main>
