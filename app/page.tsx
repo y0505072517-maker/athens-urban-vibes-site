@@ -1,35 +1,32 @@
 "use client";
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function HomePage() {
   const [showComingSoon, setShowComingSoon] = useState(false);
+  const [muted, setMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !muted;
+      setMuted(!muted);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-[#0e0e0e] text-white font-sans overflow-x-hidden">
 
-      {/* Ambient background */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#1E3A8A]/20 blur-[120px]" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#D4AF37]/10 blur-[120px]" />
       </div>
 
-      {/* Header */}
       <header className="relative z-10 flex flex-col items-center pt-16 pb-8 px-4 text-center">
-        
-        {/* Logo */}
         <div className="mb-6">
-          <Image
-            src="/logo.png"
-            alt="Athens Urban Vibes"
-            width={180}
-            height={180}
-            className="object-contain"
-          />
+          <Image src="/logo.png" alt="Athens Urban Vibes" width={180} height={180} className="object-contain" />
         </div>
-
-        {/* Tagline */}
         <div className="flex items-center gap-3 mb-4">
           <div className="w-8 h-[1px] bg-[#D4AF37]" />
           <span className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-semibold">Athens, Greece</span>
@@ -39,12 +36,10 @@ export default function HomePage() {
           Curated Stays · Authentic Experiences
         </p>
         <p className="text-zinc-500 text-sm font-light max-w-xl mx-auto leading-relaxed mt-2">
-          Five boutique apartments and a rooftop retreat in the heart of Athens. 
-          Fully renovated, self check-in, 7 minutes from the metro — 
+          Five boutique apartments and a rooftop retreat in the heart of Athens.
+          Fully renovated, self check-in, 7 minutes from the metro —
           designed to make every guest smile.
         </p>
-
-        {/* Direct Booking Button — Coming Soon */}
         <div className="mt-8 flex flex-col items-center gap-2">
           <button
             onClick={() => setShowComingSoon(!showComingSoon)}
@@ -61,19 +56,28 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Property Cards */}
       <section className="relative z-10 max-w-6xl mx-auto px-4 pb-24 grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
 
-        {/* Miron 18 */}
+        {/* Miron 18 — עם כפתור מיוט */}
         <Link href="/athens-urban-vibes" className="group block">
           <div className="relative rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#D4AF37]/50 transition-all duration-500 shadow-2xl">
             <div className="relative aspect-[4/3] bg-black overflow-hidden">
               <video
+                ref={videoRef}
                 src="/miron.mp4"
                 autoPlay loop muted playsInline
                 className="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+              {/* כפתור Mute/Unmute */}
+              <button
+                onClick={(e) => { e.preventDefault(); toggleMute(); }}
+                className="absolute top-4 right-4 z-20 bg-black/60 hover:bg-black/90 backdrop-blur-sm text-white text-lg w-10 h-10 rounded-full flex items-center justify-center border border-white/20 transition-all"
+              >
+                {muted ? '🔇' : '🔊'}
+              </button>
+
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <div className="text-[#D4AF37] text-xs tracking-[0.3em] uppercase mb-2 font-semibold">Miron 18 · 5 Apartments</div>
                 <h2 className="text-3xl font-bold text-white mb-2">Aura Apartments</h2>
@@ -114,7 +118,6 @@ export default function HomePage() {
         </Link>
       </section>
 
-      {/* Why us strip */}
       <section className="relative z-10 border-t border-zinc-800 py-16 px-4">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
           {[
@@ -131,7 +134,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="relative z-10 py-10 text-center border-t border-zinc-800">
         <p className="text-[#D4AF37] text-xs tracking-[0.5em] uppercase font-light">Making People Smile</p>
       </footer>
@@ -142,8 +144,8 @@ export default function HomePage() {
 
 ---
 
-**אחרי שהדבקת — הרץ:**
+**הרץ:**
 ```
 git add .
-git commit -m "Homepage: logo, description, coming soon button"
+git commit -m "Add mute toggle button to video"
 git push
