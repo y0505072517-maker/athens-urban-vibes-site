@@ -1,75 +1,86 @@
-import React from 'react';
+"use client";
 
-export default function ApartmentOne() {
-  const images = ["/miron18/apt1/cover.jpg", "/miron18/apt1/img1.jpg", "/miron18/apt1/img2.jpg", "/miron18/apt1/img3.jpg", "/miron18/apt1/img4.jpg", "/miron18/apt1/img5.jpg", "/miron18/apt1/img6.jpg"];
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+export default function MironGalleryPage() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentImg, setCurrentImg] = useState('');
+
+  // התמונות מהתיקייה שלך
+  const mironImages = [
+    '/miron18/apt1/img1.jpg',
+    '/miron18/apt1/img2.jpg',
+    '/miron18/apt1/img3.jpg',
+    '/miron18/apt1/img4.jpg',
+    '/miron18/apt1/img5.jpg',
+    '/miron18/apt1/img6.jpg',
+  ];
 
   return (
-    <div className="min-h-screen bg-[#1A1A1A] text-white font-sans text-left">
-      <nav className="p-6 border-b border-white/10 flex justify-between items-center text-[10px] uppercase tracking-widest sticky top-0 bg-[#1A1A1A]/90 backdrop-blur-sm z-50">
-        <a href="/athens-urban-vibes" className="text-gray-500 no-underline hover:text-white transition">← Back to Building</a>
-        <span className="text-blue-400 font-bold uppercase tracking-widest italic">Aura No.1</span>
+    <main className="min-h-screen bg-white text-gray-900 font-sans pb-20">
+      
+      {/* כפתור חזרה ללובי */}
+      <nav className="p-6 border-b border-gray-100">
+        <Link href="/" className="text-[#1E3A8A] font-semibold hover:text-blue-600 flex items-center gap-2 transition-colors">
+          <span>&larr; Back to Lobby</span>
+        </Link>
       </nav>
 
-      <main className="max-w-6xl mx-auto px-6 py-12">
-        <header className="mb-12 text-center md:text-left">
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-4 leading-none text-white">Aura <span className="text-blue-400 block">Apartment 1</span></h1>
-          <p className="text-gray-400 uppercase tracking-widest text-[10px] italic">7 Minutes from Metro • Modern Loft Style • Fully Renovated</p>
-        </header>
+      {/* כותרת הדף */}
+      <header className="max-w-6xl mx-auto pt-12 px-4 mb-10 text-center md:text-left">
+        <h1 className="text-4xl md:text-5xl font-bold text-[#1E3A8A] mb-4">Miron 18</h1>
+        <p className="text-xl text-gray-500 italic">Luxury Apartment Gallery</p>
+      </header>
 
-        {/* גלריית תמונות */}
-        <div className="space-y-4 mb-24">
-          <div className="aspect-video overflow-hidden rounded-lg border border-white/10 shadow-2xl">
-            <img src={images[0]} className="w-full h-full object-cover opacity-95" />
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {images.slice(1).map((img, i) => (
-              <div key={i} className="aspect-square overflow-hidden rounded-lg border border-white/5 group">
-                <img src={img} className="w-full h-full object-cover transition-all duration-700 grayscale-0 md:grayscale md:hover:grayscale-0 group-hover:scale-105" />
+      {/* גריד התמונות עם אפקט ה-Lightbox */}
+      <section className="max-w-6xl mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {mironImages.map((src, index) => (
+            <div 
+              key={index} 
+              className="group relative h-80 cursor-pointer overflow-hidden rounded-2xl shadow-lg border border-gray-100"
+              onClick={() => { 
+                setCurrentImg(src); 
+                setIsOpen(true); 
+              }}
+            >
+              <Image 
+                src={src} 
+                alt={`Miron 18 Gallery ${index + 1}`} 
+                fill 
+                className="object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                <span className="text-white opacity-0 group-hover:opacity-100 text-sm font-medium border border-white px-6 py-2 rounded-full backdrop-blur-md">
+                  Click to enlarge
+                </span>
               </div>
-            ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* חלון התמונה המוגדלת */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+          onClick={() => setIsOpen(false)}
+        >
+          <button className="absolute top-6 right-6 text-white text-5xl hover:text-gray-400 transition-colors">
+            &times;
+          </button>
+          <div className="relative w-full max-w-6xl h-[85vh]">
+            <Image 
+              src={currentImg} 
+              alt="Enlarged view" 
+              fill 
+              className="object-contain" 
+            />
           </div>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 border-t border-white/5 pt-16 items-start">
-          <div className="md:col-span-2 space-y-12">
-            <section>
-                <h2 className="text-xl font-bold uppercase tracking-widest mb-6 text-blue-400 border-b border-blue-400/20 pb-2 inline-block">The Space</h2>
-                <p className="text-xl text-gray-300 leading-relaxed italic">"Experience the ultimate urban stay in our Modern Loft. Meticulously designed to combine luxury with comfort, ensuring every guest leaves with a smile."</p>
-            </section>
-            
-            <section>
-                <h3 className="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-8 font-bold">Premium Amenities</h3>
-                <div className="grid grid-cols-2 gap-y-8 gap-x-4">
-                    <div className="flex items-center gap-3"><span className="text-blue-400 text-xl">📶</span> <span className="text-xs uppercase tracking-widest">Fast Wi-Fi</span></div>
-                    <div className="flex items-center gap-3"><span className="text-blue-400 text-xl">☕</span> <span className="text-xs uppercase tracking-widest">Nespresso</span></div>
-                    <div className="flex items-center gap-3"><span className="text-blue-400 text-xl">❄️</span> <span className="text-xs uppercase tracking-widest">Air Conditioning</span></div>
-                    <div className="flex items-center gap-3"><span className="text-blue-400 text-xl">📺</span> <span className="text-xs uppercase tracking-widest">Smart TV</span></div>
-                </div>
-            </section>
-          </div>
-
-          {/* קופסת הזמנה */}
-          <div className="sticky top-28 bg-white/5 p-8 rounded-xl border border-white/10 text-center shadow-2xl backdrop-blur-md">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-gray-400 mb-6 font-bold">Secure Your Stay</p>
-            <div className="space-y-4">
-              <a href="https://www.booking.com/hotel/gr/athens-urban-vibes-1-modern-loft-renovated.he.html" target="_blank" className="block w-full bg-[#003580] text-white py-4 rounded font-bold uppercase text-[11px] tracking-widest no-underline hover:opacity-90 transition-all">
-                Reserve on Booking.com
-              </a>
-              <a href="https://he.airbnb.com/rooms/1457080095293779783" target="_blank" className="block w-full bg-[#FF5A5F] text-white py-4 rounded font-bold uppercase text-[11px] tracking-widest no-underline hover:opacity-90 transition-all">
-                Book on Airbnb
-              </a>
-            </div>
-            <div className="mt-8 pt-6 border-t border-white/5">
-              <p className="text-[10px] text-blue-400 font-bold uppercase tracking-widest mb-1 italic">Coming Soon</p>
-              <p className="text-[9px] text-gray-500 uppercase leading-relaxed tracking-tighter">Direct booking engine is on its way.</p>
-            </div>
-          </div>
-        </div>
-      </main>
-
-      <footer className="py-20 text-center opacity-60 border-t border-white/5 mt-20">
-        <h2 className="text-2xl md:text-4xl font-medium mb-4 uppercase tracking-[0.2em] italic text-white/90">Making people smile</h2>
-      </footer>
-    </div>
+      )}
+    </main>
   );
 }
