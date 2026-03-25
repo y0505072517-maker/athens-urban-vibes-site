@@ -5,7 +5,7 @@ import { useState, useRef } from 'react';
 
 export default function LuxurySelectionPage() {
   const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<any>(null);
 
   const toggleSound = () => {
     if (videoRef.current) {
@@ -17,7 +17,7 @@ export default function LuxurySelectionPage() {
   return (
     <main style={{ backgroundColor: '#000', minHeight: '100vh', color: '#fff', position: 'relative', overflow: 'hidden', fontFamily: 'sans-serif' }}>
       
-      {/* רקע וידאו - הריל שלך */}
+      {/* Background Video */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)', zIndex: 1 }} />
         <video 
@@ -28,41 +28,40 @@ export default function LuxurySelectionPage() {
           playsInline
           style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }}
         >
-          {/* הוידאו חייב להיות בתיקיית public תחת השם הזה */}
           <source src="/luxury-reel.mp4" type="video/mp4" />
         </video>
       </div>
 
-      {/* כפתור הפעלת מוזיקה עדין */}
+      {/* Sound Toggle Button */}
       <button 
         onClick={toggleSound}
-        style={{ position: 'absolute', top: '30px', right: '30px', zIndex: 50, background: 'rgba(0,0,0,0.5)', border: '1px solid #D4AF37', color: '#D4AF37', padding: '10px 20px', borderRadius: '30px', cursor: 'pointer', fontSize: '12px', letterSpacing: '2px', backdropFilter: 'blur(5px)', transition: 'all 0.3s' }}
+        style={{ position: 'absolute', top: '30px', right: '30px', zIndex: 50, background: 'rgba(0,0,0,0.5)', border: '1px solid #D4AF37', color: '#D4AF37', padding: '10px 20px', borderRadius: '30px', cursor: 'pointer', fontSize: '12px', letterSpacing: '2px', backdropFilter: 'blur(5px)' }}
       >
         {isMuted ? '🔈 SOUND ON' : '🔊 SOUND OFF'}
       </button>
 
-      {/* התוכן המרכזי */}
+      {/* Main Content */}
       <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', textAlign: 'center', padding: '20px' }}>
         
         <header style={{ marginBottom: '60px' }}>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '2px', textShadow: '2px 2px 10px rgba(0,0,0,0.8)' }}>
+          <h1 style={{ fontSize: '4rem', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '2px' }}>
             Athenian <span style={{ color: '#D4AF37' }}>Excellence</span>
           </h1>
         </header>
 
-        {/* כרטיסי הבחירה */}
+        {/* Choice Cards */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', maxWidth: '1000px', width: '100%' }}>
           
           {/* Athens Urban Vibes */}
           <Link href="/athens-urban-vibes" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <div style={{ border: '1px solid rgba(212,175,55,0.4)', backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)', padding: '50px 30px', borderRadius: '20px', transition: 'all 0.3s ease', cursor: 'pointer', height: '100%', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
-              <h3 style={{ fontSize: '2.2rem', fontWeight: '900', marginBottom: '15px', color: '#fff', letterSpacing: '-1px' }}>
+            <div style={{ border: '1px solid rgba(212,175,55,0.4)', backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)', padding: '50px 30px', borderRadius: '20px', height: '100%' }}>
+              <h3 style={{ fontSize: '2.2rem', fontWeight: '900', marginBottom: '15px' }}>
                 Athens <span style={{color: '#D4AF37'}}>Urban Vibes</span>
               </h3>
-              <p style={{ color: '#ccc', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '30px' }}>
+              <p style={{ color: '#ccc', fontSize: '0.95rem', marginBottom: '30px' }}>
                 Modern, curated city living. The perfect urban base in the heart of Athens.
               </p>
-              <div style={{ color: '#D4AF37', fontWeight: 'bold', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', borderBottom: '1px solid #D4AF37', display: 'inline-block', paddingBottom: '3px' }}>
+              <div style={{ color: '#D4AF37', fontWeight: 'bold', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', borderBottom: '1px solid #D4AF37', display: 'inline-block', paddingBottom: '5px' }}>
                 Enter Collection →
               </div>
             </div>
@@ -71,10 +70,10 @@ export default function LuxurySelectionPage() {
           {/* Athenian Sky Retreat */}
           <Link href="/athenian-sky-retreat" style={{ textDecoration: 'none', color: 'inherit' }}>
             <div style={{ border: '1px solid rgba(255,255,255,0.1)', backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)', padding: '50px 30px', borderRadius: '20px', opacity: 0.8, height: '100%' }}>
-              <h3 style={{ fontSize: '2.2rem', fontWeight: '900', marginBottom: '15px', color: '#fff', letterSpacing: '-1px' }}>
+              <h3 style={{ fontSize: '2.2rem', fontWeight: '900', marginBottom: '15px' }}>
                 Athenian <span style={{color: '#D4AF37'}}>Sky Retreat</span>
               </h3>
-              <p style={{ color: '#ccc', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '30px' }}>
+              <p style={{ color: '#ccc', fontSize: '0.95rem', marginBottom: '30px' }}>
                 Elevated luxury with breathtaking views. A premium escape above the city.
               </p>
               <div style={{ color: '#D4AF37', fontWeight: 'bold', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase' }}>
@@ -85,9 +84,9 @@ export default function LuxurySelectionPage() {
 
         </div>
 
-        {/* משפט הסיום האלגנטי */}
+        {/* Footer */}
         <footer style={{ marginTop: '80px' }}>
-          <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: '1.4rem', color: '#D4AF37', letterSpacing: '1.5px', textShadow: '1px 1px 5px rgba(0,0,0,0.8)' }}>
+          <p style={{ fontFamily: 'serif', fontStyle: 'italic', fontSize: '1.4rem', color: '#D4AF37' }}>
             "Making people smile"
           </p>
         </footer>
