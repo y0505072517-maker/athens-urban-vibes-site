@@ -10,31 +10,23 @@ const apartments = [
 
 export default function AthensLobby() {
   return (
-    <main className="min-h-screen bg-[#0e0e0e] text-white font-sans pb-24">
-      {/* Header */}
-      <header className="text-center py-16 px-4 relative z-10">
-        <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-4">
-          Athens <span className="text-[#D4AF37]">Urban Vibes</span>
+    <main style={{ backgroundColor: '#0e0e0e', minHeight: '100 screen', color: 'white', padding: '40px', fontFamily: 'sans-serif' }}>
+      <header style={{ textAlign: 'center', marginBottom: '50px' }}>
+        <h1 style={{ fontSize: '3rem', fontWeight: '900' }}>
+          Athens <span style={{ color: '#D4AF37' }}>Urban Vibes</span>
         </h1>
-        <p className="text-zinc-400 max-w-xl mx-auto">Five unique residences in the heart of Athens.</p>
+        <p style={{ color: '#a1a1aa' }}>Five unique residences in the heart of Athens.</p>
       </header>
 
-      {/* Grid */}
-      <section className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+      <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', maxWidth: '1200px', margin: '0 auto' }}>
         {apartments.map((apt) => (
-          <Link key={apt.id} href={apt.path} className="group block">
-            <div className="bg-[#141414] rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#D4AF37]/50 transition-all shadow-2xl">
-              <div className="relative h-64 w-full">
-                <img 
-                  src={apt.image} 
-                  alt={apt.name} 
-                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all"
-                />
-              </div>
-              <div className="p-6">
-                <span className="text-[#D4AF37] text-[10px] tracking-widest uppercase font-bold">{apt.tagline}</span>
-                <h2 className="text-2xl font-bold mt-1">{apt.name}</h2>
-                <div className="mt-4 pt-4 border-t border-zinc-800 text-[#D4AF37] text-xs font-black uppercase tracking-widest">
+          <Link key={apt.id} href={apt.path} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div style={{ backgroundColor: '#141414', borderRadius: '15px', overflow: 'hidden', border: '1px solid #27272a' }}>
+              <img src={apt.image} alt={apt.name} style={{ width: '100%', h: '250px', objectFit: 'cover' }} />
+              <div style={{ padding: '20px' }}>
+                <span style={{ color: '#D4AF37', fontSize: '10px', fontWeight: 'bold', letterSpacing: '2px' }}>{apt.tagline}</span>
+                <h2 style={{ fontSize: '1.5rem', margin: '10px 0' }}>{apt.name}</h2>
+                <div style={{ color: '#D4AF37', fontWeight: 'bold', marginTop: '20px', borderTop: '1px solid #27272a', paddingTop: '15px' }}>
                   Explore Residence →
                 </div>
               </div>
@@ -42,10 +34,6 @@ export default function AthensLobby() {
           </Link>
         ))}
       </section>
-
-      <footer className="mt-24 border-t border-zinc-800 py-12 text-center text-zinc-600 text-[10px] tracking-[0.3em] uppercase">
-        Athens Urban Vibes · 2026
-      </footer>
     </main>
   );
 }
