@@ -1,98 +1,54 @@
-"use client";
-
 import Link from 'next/link';
-import { useState, useRef } from 'react';
 
-export default function LuxurySelectionPage() {
-  const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
+const apartments = [
+  { id: 1, name: "Urban Base No. 1", tagline: "Fully Renovated", image: "/miron18/apt1/cover.jpg", path: "/athens-urban-vibes/aura-apt1" },
+  { id: 2, name: "Backyard Bliss #2", tagline: "Private Patio", image: "/miron18/apt2/cover.jpg", path: "/athens-urban-vibes/aura-apt2" },
+  { id: 3, name: "Bright Front Apt #3", tagline: "Sun-Drenched", image: "/miron18/apt3/cover.jpg", path: "/athens-urban-vibes/aura-apt3" },
+  { id: 4, name: "Quiet Balcony #4", tagline: "Total Serenity", image: "/miron18/apt4/cover.jpg", path: "/athens-urban-vibes/aura-apt4" },
+  { id: 5, name: "Cozy Balcony #5", tagline: "Freshly Renovated", image: "/miron18/apt5/cover.jpg", path: "/athens-urban-vibes/aura-apt5" },
+];
 
-  const toggleSound = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-
+export default function UrbanVibesLobby() {
   return (
-    <main style={{ backgroundColor: '#000', minHeight: '100vh', color: '#fff', position: 'relative', overflow: 'hidden', fontFamily: 'sans-serif' }}>
+    <main style={{ backgroundColor: '#0e0e0e', minHeight: '100vh', color: 'white', padding: '40px', fontFamily: 'sans-serif' }}>
       
-      {/* רקע וידאו - הריל שלך */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)', zIndex: 1 }} />
-        <video 
-          ref={videoRef}
-          autoPlay 
-          muted={isMuted} 
-          loop 
-          playsInline
-          style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }}
-        >
-          {/* הוידאו חייב להיות בתיקיית public תחת השם הזה */}
-          <source src="/luxury-reel.mp4" type="video/mp4" />
-        </video>
-      </div>
+      <header style={{ textAlign: 'center', marginBottom: '50px' }}>
+        {/* חיבור חזרה לדף הבית הראשי */}
+        <Link href="/" style={{ color: '#888', textDecoration: 'none', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+          ← BACK TO MAIN
+        </Link>
+        <h1 style={{ fontSize: '3.5rem', fontWeight: '900', marginTop: '20px', letterSpacing: '-1px', textTransform: 'uppercase' }}>
+          Athens <span style={{ color: '#D4AF37' }}>Urban Vibes</span>
+        </h1>
+        <p style={{ color: '#a1a1aa', marginTop: '10px' }}>Five unique residences in the heart of Athens.</p>
+      </header>
 
-      {/* כפתור הפעלת מוזיקה עדין */}
-      <button 
-        onClick={toggleSound}
-        style={{ position: 'absolute', top: '30px', right: '30px', zIndex: 50, background: 'rgba(0,0,0,0.5)', border: '1px solid #D4AF37', color: '#D4AF37', padding: '10px 20px', borderRadius: '30px', cursor: 'pointer', fontSize: '12px', letterSpacing: '2px', backdropFilter: 'blur(5px)', transition: 'all 0.3s' }}
-      >
-        {isMuted ? '🔈 SOUND ON' : '🔊 SOUND OFF'}
-      </button>
-
-      {/* התוכן המרכזי */}
-      <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', textAlign: 'center', padding: '20px' }}>
-        
-        <header style={{ marginBottom: '60px' }}>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '2px', textShadow: '2px 2px 10px rgba(0,0,0,0.8)' }}>
-            Athenian <span style={{ color: '#D4AF37' }}>Excellence</span>
-          </h1>
-        </header>
-
-        {/* כרטיסי הבחירה */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', maxWidth: '1000px', width: '100%' }}>
-          
-          {/* Athens Urban Vibes */}
-          <Link href="/athens-urban-vibes" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <div style={{ border: '1px solid rgba(212,175,55,0.4)', backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)', padding: '50px 30px', borderRadius: '20px', transition: 'all 0.3s ease', cursor: 'pointer', height: '100%', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
-              <h3 style={{ fontSize: '2.2rem', fontWeight: '900', marginBottom: '15px', color: '#fff', letterSpacing: '-1px' }}>
-                Athens <span style={{color: '#D4AF37'}}>Urban Vibes</span>
-              </h3>
-              <p style={{ color: '#ccc', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '30px' }}>
-                Modern, curated city living. The perfect urban base in the heart of Athens.
-              </p>
-              <div style={{ color: '#D4AF37', fontWeight: 'bold', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', borderBottom: '1px solid #D4AF37', display: 'inline-block', paddingBottom: '3px' }}>
-                Enter Collection →
+      <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', maxWidth: '1200px', margin: '0 auto' }}>
+        {apartments.map((apt) => (
+          <Link key={apt.id} href={apt.path} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div style={{ backgroundColor: '#141414', borderRadius: '15px', overflow: 'hidden', border: '1px solid #27272a', display: 'flex', flexDirection: 'column', height: '100%' }}>
+              
+              <img 
+                src={apt.image} 
+                alt={apt.name} 
+                style={{ width: '100%', height: '250px', objectFit: 'cover' }} 
+              />
+              
+              <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                <span style={{ color: '#D4AF37', fontSize: '10px', fontWeight: 'bold', letterSpacing: '2px', textTransform: 'uppercase' }}>
+                  {apt.tagline}
+                </span>
+                <h2 style={{ fontSize: '1.5rem', margin: '10px 0' }}>{apt.name}</h2>
+                <div style={{ color: '#D4AF37', fontWeight: 'bold', marginTop: 'auto', borderTop: '1px solid #27272a', paddingTop: '15px', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                  Explore Residence →
+                </div>
               </div>
+
             </div>
           </Link>
+        ))}
+      </section>
 
-          {/* Athenian Sky Retreat */}
-          <Link href="/athenian-sky-retreat" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <div style={{ border: '1px solid rgba(255,255,255,0.1)', backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)', padding: '50px 30px', borderRadius: '20px', opacity: 0.8, height: '100%' }}>
-              <h3 style={{ fontSize: '2.2rem', fontWeight: '900', marginBottom: '15px', color: '#fff', letterSpacing: '-1px' }}>
-                Athenian <span style={{color: '#D4AF37'}}>Sky Retreat</span>
-              </h3>
-              <p style={{ color: '#ccc', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '30px' }}>
-                Elevated luxury with breathtaking views. A premium escape above the city.
-              </p>
-              <div style={{ color: '#D4AF37', fontWeight: 'bold', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase' }}>
-                Coming Soon
-              </div>
-            </div>
-          </Link>
-
-        </div>
-
-        {/* משפט הסיום האלגנטי */}
-        <footer style={{ marginTop: '80px' }}>
-          <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: '1.4rem', color: '#D4AF37', letterSpacing: '1.5px', textShadow: '1px 1px 5px rgba(0,0,0,0.8)' }}>
-            "Making people smile"
-          </p>
-        </footer>
-
-      </div>
     </main>
   );
 }
