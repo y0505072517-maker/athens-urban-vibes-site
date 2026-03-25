@@ -124,12 +124,7 @@ export default function AuraApt1Page() {
     </main>
   );
 }
-```
 
-**Ctrl+S → סגור**
 
----
-```
-git add .
-git commit -m "Fix homepage and apt1"
-git push
+
+
