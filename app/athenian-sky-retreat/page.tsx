@@ -171,14 +171,3 @@ export default function SkyRetreatPage() {
     </main>
   );
 }
-```
-
----
-
-## 🎉 סיימת את כל 8 הקבצים!
-
-עכשיו פתח את ה-Terminal ב-VS Code (תפריט `Terminal` → `New Terminal`) והרץ:
-```
-git add .
-git commit -m "Full website redesign with real booking links"
-git push

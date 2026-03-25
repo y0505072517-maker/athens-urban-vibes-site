@@ -179,12 +179,3 @@ export default function AuraApt1Page() {
     </main>
   );
 }
-```
-
----
-
-**הרץ:**
-```
-git add .
-git commit -m "Apt1: fix layout, booking links, coming soon"
-git push
