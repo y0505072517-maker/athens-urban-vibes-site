@@ -1,5 +1,4 @@
 "use client";
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useRef } from 'react';
@@ -19,7 +18,6 @@ export default function HomePage() {
 
   return (
     <main style={{ backgroundColor: '#0a0a0a', minHeight: '100vh', color: '#fff', fontFamily: 'sans-serif', padding: '40px 20px' }}>
-
       <header style={{ textAlign: 'center', marginBottom: '50px' }}>
         <Image src="/logo.png" alt="Athens Urban Vibes" width={140} height={140} style={{ objectFit: 'contain', marginBottom: '20px' }} />
         <h1 style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '2px', margin: 0 }}>
@@ -31,7 +29,6 @@ export default function HomePage() {
       </header>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '30px', maxWidth: '1200px', margin: '0 auto' }}>
-
         <Link href="/athens-urban-vibes" style={{ textDecoration: 'none', color: 'inherit' }}>
           <div style={{ borderRadius: '20px', overflow: 'hidden', border: '1px solid rgba(212,175,55,0.4)', position: 'relative', height: '520px', cursor: 'pointer' }}>
             <video ref={videoRef} autoPlay muted={isMuted} loop playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}>
@@ -84,10 +81,3 @@ export default function HomePage() {
     </main>
   );
 }
-```
-
----
-
-**אחר כך — תקן דירה 1:**
-```
-notepad C:\Users\yuval\athens-urban-vibes\app\athens-urban-vibes\aura-apt1\page.tsx
