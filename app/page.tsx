@@ -1,130 +1,93 @@
 "use client";
-import { useState } from 'react';
-import Image from 'next/image';
+
 import Link from 'next/link';
+import Image from 'next/image';
+import { useState, useRef } from 'react';
 
-const APT = {
-  number: 1,
-  name: "Aura Apartment 1",
-  tagline: "Backyard Bliss Patio",
-  subtitle: "7 MIN FROM METRO · PRIVATE PATIO · SLEEPS 4 · FULLY RENOVATED",
-  description: `A light-filled, modern apartment in the heart of Athens — steps from the metro and surrounded by the city's best cafés and restaurants. The standout feature: your own private patio, a rare urban oasis with natural greenery and ambient lighting. Renovated to a high standard with natural wood finishes, premium queen bed, full kitchen and fast Wi-Fi.`,
-  guests: 4, beds: 1, baths: 1, sleeps: "1 Queen Bed",
-  airbnbUrl: "https://he.airbnb.com/rooms/1457080095293779783",
-  amenities: [
-    { icon: "📶", label: "Fast Wi-Fi" },
-    { icon: "☕", label: "Nespresso" },
-    { icon: "❄️", label: "Air Conditioning" },
-    { icon: "🪴", label: "Private Patio" },
-    { icon: "🍳", label: "Full Kitchen" },
-    { icon: "🧺", label: "Washing Machine" },
-    { icon: "📺", label: "HD Smart TV" },
-    { icon: "🔑", label: "Self Check-in" },
-  ],
-  images: [
-    '/miron18/apt1/img1.jpg',
-    '/miron18/apt1/img2.jpg',
-    '/miron18/apt1/img3.jpg',
-    '/miron18/apt1/img4.jpg',
-    '/miron18/apt1/img5.jpg',
-    '/miron18/apt1/img6.jpg',
-  ],
-};
+export default function HomePage() {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<any>(null);
 
-export default function AuraApt1Page() {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentImg, setCurrentImg] = useState('');
+  const toggleSound = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
 
   return (
-    <main style={{ backgroundColor: '#0e0e0e', minHeight: '100vh', color: '#fff', fontFamily: 'sans-serif', paddingBottom: '80px' }}>
+    <main style={{ backgroundColor: '#0a0a0a', minHeight: '100vh', color: '#fff', fontFamily: 'sans-serif', padding: '40px 20px' }}>
 
-      <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 30px', borderBottom: '1px solid #27272a' }}>
-        <Link href="/athens-urban-vibes" style={{ color: '#aaa', textDecoration: 'none', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase' }}>← Miron 18</Link>
-        <span style={{ color: '#D4AF37', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase' }}>Residence {APT.number}</span>
-        <div style={{ width: '80px' }} />
-      </nav>
-
-      <header style={{ maxWidth: '1200px', margin: '0 auto', padding: '50px 30px 30px' }}>
-        <div style={{ color: '#D4AF37', fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '12px' }}>{APT.tagline}</div>
-        <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', fontWeight: '900', margin: '0 0 12px', textTransform: 'uppercase', lineHeight: 1 }}>
-          Aura <span style={{ color: '#D4AF37' }}>Apartment 1</span>
+      <header style={{ textAlign: 'center', marginBottom: '50px' }}>
+        <Image src="/logo.png" alt="Athens Urban Vibes" width={140} height={140} style={{ objectFit: 'contain', marginBottom: '20px' }} />
+        <h1 style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '2px', margin: 0 }}>
+          Experience <span style={{ color: '#D4AF37' }}>Athens</span>
         </h1>
-        <p style={{ color: '#71717a', fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase' }}>{APT.subtitle}</p>
-        <div style={{ display: 'flex', gap: '24px', marginTop: '20px', color: '#a1a1aa', fontSize: '14px' }}>
-          <span>👥 {APT.guests} guests</span>
-          <span>🛏 {APT.beds} bed</span>
-          <span>🚿 {APT.baths} bath</span>
-          <span>🛌 {APT.sleeps}</span>
-        </div>
+        <p style={{ color: '#aaa', fontSize: '1.1rem', marginTop: '10px', fontStyle: 'italic' }}>
+          Find your perfect stay in the heart of Greece
+        </p>
       </header>
 
-      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 30px 50px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
-        {APT.images.map((src, i) => (
-          <div key={i} onClick={() => { setCurrentImg(src); setLightboxOpen(true); }} style={{ position: 'relative', aspectRatio: '4/3', borderRadius: '12px', overflow: 'hidden', cursor: 'pointer', border: '1px solid #27272a' }}>
-            <Image src={src} alt={`Photo ${i + 1}`} fill style={{ objectFit: 'cover' }} />
-          </div>
-        ))}
-      </section>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '30px', maxWidth: '1200px', margin: '0 auto' }}>
 
-      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 30px', display: 'grid', gridTemplateColumns: '1fr 340px', gap: '50px', borderTop: '1px solid #27272a', paddingTop: '50px' }}>
-
-        <div>
-          <h2 style={{ color: '#D4AF37', fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '20px' }}>About This Space</h2>
-          <p style={{ fontSize: '1.2rem', color: '#d4d4d8', fontWeight: '300', lineHeight: '1.8', marginBottom: '40px' }}>{APT.description}</p>
-
-          <h3 style={{ color: '#71717a', fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '24px' }}>Amenities</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '40px' }}>
-            {APT.amenities.map((a) => (
-              <div key={a.label} style={{ backgroundColor: '#141414', border: '1px solid #27272a', borderRadius: '12px', padding: '16px', textAlign: 'center' }}>
-                <div style={{ fontSize: '1.5rem', marginBottom: '8px' }}>{a.icon}</div>
-                <div style={{ color: '#d4d4d8', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: '600' }}>{a.label}</div>
-              </div>
-            ))}
-          </div>
-
-          <h3 style={{ color: '#71717a', fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '16px' }}>Good to Know</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', color: '#a1a1aa', fontSize: '14px' }}>
-            <div>🔑 Self check-in · Smart lock</div>
-            <div>🚗 Free street parking</div>
-            <div>🚇 7 min walk to Metro</div>
-            <div>🧯 Fire extinguisher on site</div>
-          </div>
-        </div>
-
-        <div style={{ position: 'sticky', top: '30px', height: 'fit-content', backgroundColor: '#141414', border: '1px solid #3f3f46', borderRadius: '20px', padding: '32px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-            <div style={{ color: '#D4AF37', fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '8px' }}>Secure Your Stay</div>
-            <div style={{ color: '#fff', fontSize: '18px', fontWeight: '700' }}>{APT.name}</div>
-            <div style={{ color: '#71717a', fontSize: '12px', marginTop: '4px' }}>{APT.tagline}</div>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <a href={APT.airbnbUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'block', padding: '16px', backgroundColor: '#FF5A5F', color: '#fff', textAlign: 'center', fontWeight: '700', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', borderRadius: '12px', textDecoration: 'none' }}>
-              🏠 Book on Airbnb
-            </a>
-            <div style={{ padding: '16px', backgroundColor: '#1c1c1e', border: '1px solid #3f3f46', borderRadius: '12px', textAlign: 'center' }}>
-              <div style={{ color: '#71717a', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2px' }}>Booking.com</div>
-              <div style={{ color: '#D4AF37', fontSize: '11px', marginTop: '4px' }}>Coming Soon</div>
+        <Link href="/athens-urban-vibes" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <div style={{ borderRadius: '20px', overflow: 'hidden', border: '1px solid rgba(212,175,55,0.4)', position: 'relative', height: '520px', cursor: 'pointer' }}>
+            <video ref={videoRef} autoPlay muted={isMuted} loop playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}>
+              <source src="/miron.mp4" type="video/mp4" />
+            </video>
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.9) 40%, rgba(0,0,0,0.3) 100%)' }} />
+            <button onClick={toggleSound} style={{ position: 'absolute', top: '16px', right: '16px', zIndex: 10, background: 'rgba(0,0,0,0.5)', border: '1px solid #D4AF37', color: '#D4AF37', padding: '8px 16px', borderRadius: '30px', cursor: 'pointer', fontSize: '11px', letterSpacing: '2px', backdropFilter: 'blur(5px)', textTransform: 'uppercase' }}>
+              {isMuted ? '🔇 Sound On' : '🔊 Sound Off'}
+            </button>
+            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '40px 35px' }}>
+              <div style={{ color: '#D4AF37', fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '10px' }}>Miron 18 · 5 Apartments</div>
+              <h2 style={{ fontSize: '2.2rem', fontWeight: '900', margin: '0 0 12px 0' }}>Athens <span style={{ color: '#D4AF37' }}>Urban Vibes</span></h2>
+              <p style={{ color: '#ccc', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '25px' }}>Curated city living at Miron 18. Modern, vibrant, and fully renovated boutique apartments.</p>
+              <div style={{ color: '#D4AF37', fontWeight: 'bold', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', borderBottom: '1px solid #D4AF37', display: 'inline-block', paddingBottom: '3px' }}>Explore Collection →</div>
             </div>
           </div>
-          <div style={{ marginTop: '24px', paddingTop: '20px', borderTop: '1px solid #27272a', textAlign: 'center' }}>
-            <div style={{ color: '#52525b', fontSize: '12px' }}>Hosted by <span style={{ color: '#a1a1aa', fontWeight: '600' }}>Yuval</span> · Superhost</div>
-            <div style={{ color: '#52525b', fontSize: '12px', marginTop: '4px' }}>Self check-in · Free cancellation</div>
-          </div>
-        </div>
-      </section>
+        </Link>
 
-      {lightboxOpen && (
-        <div onClick={() => setLightboxOpen(false)} style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.97)', zIndex: 50, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
-          <button onClick={() => setLightboxOpen(false)} style={{ position: 'absolute', top: '20px', right: '30px', background: 'none', border: 'none', color: '#fff', fontSize: '3rem', cursor: 'pointer' }}>×</button>
-          <div style={{ position: 'relative', width: '100%', maxWidth: '1000px', height: '80vh' }}>
-            <Image src={currentImg} alt="Enlarged" fill style={{ objectFit: 'contain' }} />
+        <Link href="/athenian-sky-retreat" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <div style={{ borderRadius: '20px', overflow: 'hidden', border: '1px solid rgba(212,175,55,0.4)', position: 'relative', height: '520px', cursor: 'pointer' }}>
+            <Image src="/sky-retreat/cover.jpg" alt="Athenian Sky Retreat" fill style={{ objectFit: 'cover' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.9) 40%, rgba(0,0,0,0.3) 100%)' }} />
+            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '40px 35px' }}>
+              <div style={{ color: '#D4AF37', fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '10px' }}>Signature Suite · Panoramic Views</div>
+              <h2 style={{ fontSize: '2.2rem', fontWeight: '900', margin: '0 0 12px 0' }}>Athenian <span style={{ color: '#D4AF37' }}>Sky Retreat</span></h2>
+              <p style={{ color: '#ccc', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '25px' }}>A private rooftop sanctuary with sweeping views over Athens and the surrounding mountains.</p>
+              <div style={{ color: '#D4AF37', fontWeight: 'bold', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', borderBottom: '1px solid #D4AF37', display: 'inline-block', paddingBottom: '3px' }}>Discover the Retreat →</div>
+            </div>
           </div>
-        </div>
-      )}
+        </Link>
+      </div>
+
+      <div style={{ maxWidth: '900px', margin: '60px auto 0', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', textAlign: 'center' }}>
+        {[
+          { icon: '📍', label: '7 min from Metro' },
+          { icon: '✨', label: 'Fully Renovated' },
+          { icon: '🔑', label: 'Self Check-in' },
+          { icon: '🌟', label: 'Superhost · Yuval' },
+        ].map((item) => (
+          <div key={item.label}>
+            <div style={{ fontSize: '2rem', marginBottom: '8px' }}>{item.icon}</div>
+            <div style={{ color: '#aaa', fontSize: '11px', letterSpacing: '1px', textTransform: 'uppercase' }}>{item.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <footer style={{ marginTop: '60px', textAlign: 'center' }}>
+        <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: '1.5rem', color: '#D4AF37' }}>"Making people smile"</p>
+      </footer>
     </main>
   );
 }
+```
 
+---
 
-
-
+**אחר כך — תקן דירה 1:**
+```
+notepad C:\Users\yuval\athens-urban-vibes\app\athens-urban-vibes\aura-apt1\page.tsx
