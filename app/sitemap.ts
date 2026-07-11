@@ -12,6 +12,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://www.athensurbanvibes.com/athenian-sky-retreat',
     },
     {
+      url: 'https://www.athensurbanvibes.com/akadimia-platonos',
+    },
+    {
       url: 'https://www.athensurbanvibes.com/athens-urban-vibes/aura-apt1',
     },
     {

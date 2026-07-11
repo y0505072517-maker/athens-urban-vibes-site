@@ -75,6 +75,12 @@ export default function HomePage() {
         ))}
       </div>
 
+      <div style={{ marginTop: '60px', textAlign: 'center' }}>
+        <Link href="/akadimia-platonos" style={{ color: '#D4AF37', textDecoration: 'none', fontSize: '12px', letterSpacing: '1px', borderBottom: '1px solid #D4AF37', paddingBottom: '3px' }}>
+          Coming soon: our third location in Akadimia Platonos
+        </Link>
+      </div>
+
       <footer style={{ marginTop: '60px', textAlign: 'center' }}>
         <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: '1.5rem', color: '#D4AF37' }}>"Making people smile"</p>
       </footer>
