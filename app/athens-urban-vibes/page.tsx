@@ -58,6 +58,25 @@ const apartments = [
   },
 ];
 
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.athensurbanvibes.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Miron 18",
+      item: "https://www.athensurbanvibes.com/athens-urban-vibes",
+    },
+  ],
+};
+
 export default function UrbanVibesLobby() {
   return (
     <main
@@ -69,6 +88,12 @@ export default function UrbanVibesLobby() {
         fontFamily: "sans-serif",
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
         <header style={{ textAlign: "center", marginBottom: "50px" }}>
           <Link
