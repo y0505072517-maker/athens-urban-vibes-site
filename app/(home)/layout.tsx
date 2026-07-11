@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 const title = 'Athens Urban Vibes | Boutique Apartments & Rooftop Suite in Athens'
 const description =
-  'Fully renovated boutique apartments in Athens with self check-in, hosted by Airbnb Superhost Yuval. Five apartments at Miron 18, a 7-minute walk from the metro, plus a rooftop suite with panoramic views.'
+  'Fully renovated boutique apartments in Athens with self check-in, hosted by Airbnb Superhost Yuval. Five apartments at Miron 18, a 7-minute walk from Victoria metro station, plus a rooftop suite with panoramic views over the city.'
 
 export const metadata: Metadata = {
   title,
