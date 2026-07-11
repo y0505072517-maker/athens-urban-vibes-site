@@ -19,6 +19,33 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  name: 'Athens Urban Vibes',
+  url: 'https://www.athensurbanvibes.com',
+  logo: 'https://www.athensurbanvibes.com/logo.png',
+  description:
+    'Fully renovated boutique apartments and a rooftop suite in Athens, with self check-in, hosted by Airbnb Superhost Yuval.',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Miron 18',
+    addressLocality: 'Athens',
+    addressCountry: 'GR',
+  },
+  areaServed: 'Athens, Greece',
+}
+
 export default function HomeLayout({ children }: { children: React.ReactNode }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      {children}
+    </>
+  )
 }
