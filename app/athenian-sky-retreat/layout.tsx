@@ -16,6 +16,8 @@ export const metadata: Metadata = {
     description,
     url: '/athenian-sky-retreat',
     type: 'website',
+    siteName: 'Athens Urban Vibes',
+    locale: 'en_US',
     images: ['/sky-retreat/cover.jpg'],
   },
 }

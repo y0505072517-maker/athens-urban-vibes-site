@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     description,
     url: '/athens-urban-vibes/aura-apt5',
     type: 'website',
+    siteName: 'Athens Urban Vibes',
+    locale: 'en_US',
     images: ['/miron18/apt5/cover.jpg'],
   },
 }

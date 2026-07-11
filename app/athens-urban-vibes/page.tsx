@@ -16,6 +16,8 @@ export const metadata: Metadata = {
     description,
     url: "/athens-urban-vibes",
     type: "website",
+    siteName: "Athens Urban Vibes",
+    locale: "en_US",
     images: ["/miron18/apt1/cover.jpg"],
   },
 };
