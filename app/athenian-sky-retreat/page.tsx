@@ -118,6 +118,28 @@ export default function SkyRetreatPage() {
         </div>
       </section>
 
+      {/* Rooftop terrace, view & workspace — reuses the "Experience" section pattern (eyebrow label + body paragraph) */}
+      <section className="relative z-10 max-w-5xl mx-auto px-6 mb-24 text-center">
+        <div className="mb-12">
+          <div className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-bold mb-4">A Private Rooftop, All Yours</div>
+          <p className="text-lg text-zinc-400 font-light leading-relaxed max-w-3xl mx-auto">
+            The Athenian Sky Retreat comes with its own private rooftop terrace — reserved exclusively for guests of this apartment. It&apos;s a full open-air living space: a cushioned lounge sofa, an outdoor dining table and chairs, and a pergola strung with warm lights for the evening, surrounded by potted plants.
+          </p>
+        </div>
+        <div className="mb-12">
+          <div className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-bold mb-4">The View</div>
+          <p className="text-lg text-zinc-400 font-light leading-relaxed max-w-3xl mx-auto">
+            From the terrace, the city of Athens spreads out below, ringed by mountains. On clear days you can see all the way to the port of Piraeus and the sea on the horizon. Sunsets here are the daily highlight — the sky turns gold and pink over the hills as the city lights come on.
+          </p>
+        </div>
+        <div>
+          <div className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-bold mb-4">Work with a View</div>
+          <p className="text-lg text-zinc-400 font-light leading-relaxed max-w-3xl mx-auto">
+            With Wi-Fi throughout and plenty of outdoor seating, the rooftop doubles as an open-air workspace — a favorite spot for remote workers and longer stays.
+          </p>
+        </div>
+      </section>
+
       {/* Gallery */}
       <section className="relative z-10 max-w-7xl mx-auto px-6 mb-24">
         <div className="text-center mb-12">

@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 const title =
   'Athenian Sky Retreat | Rooftop Suite with Panoramic Views — Athens Urban Vibes'
 const description =
-  'A private rooftop suite with sweeping panoramic views over Athens and the surrounding mountains. Fully renovated with self check-in, hosted by Superhost Yuval.'
+  'A rooftop apartment in Athens with a fully private terrace — lounge seating, pergola with string lights, and panoramic views over the city, the mountains, and out to Piraeus. Self check-in, hosted by Superhost Yuval.'
 
 export const metadata: Metadata = {
   title,
