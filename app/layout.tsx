@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
+  metadataBase: new URL('https://www.athensurbanvibes.com'),
   title: 'Athens Urban Vibes | Boutique Hospitality',
   description: 'Making people smile through exceptional boutique stays in Athens.',
 }
