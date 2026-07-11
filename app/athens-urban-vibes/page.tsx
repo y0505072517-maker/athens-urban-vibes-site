@@ -109,6 +109,29 @@ const lodgingLd = {
   ],
 };
 
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Can I check in late at night?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Self check-in via smart lock is available 24/7, so you can arrive at any hour — including late-night flights.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How does self check-in work?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "You'll receive entry instructions before arrival and let yourself in with a smart lock. No key pickup or meeting required.",
+      },
+    },
+  ],
+};
+
 export default function UrbanVibesLobby() {
   return (
     <main
@@ -130,6 +153,12 @@ export default function UrbanVibesLobby() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(lodgingLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqLd).replace(/</g, "\\u003c"),
         }}
       />
       <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
@@ -248,6 +277,16 @@ export default function UrbanVibesLobby() {
               </div>
             </Link>
           ))}
+        </section>
+
+        {/* Self check-in — reuses the header/card typography (card h2 + subtitle p styles); no new styles */}
+        <section style={{ textAlign: "center", marginTop: "50px" }}>
+          <h2 style={{ fontSize: "1.5rem", margin: "12px 0", lineHeight: 1.2 }}>
+            Self Check-In, Any Hour
+          </h2>
+          <p style={{ color: "#a1a1aa", marginTop: "14px", fontSize: "1.1rem" }}>
+            {"Every apartment has self check-in with a smart lock — available 24/7. Whether your flight lands in the afternoon or at 2 AM, you can let yourself in at any hour. You'll receive simple entry instructions before you arrive, so there's no waiting and no key handover."}
+          </p>
         </section>
       </div>
     </main>
