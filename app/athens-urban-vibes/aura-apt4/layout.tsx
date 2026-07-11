@@ -1,3 +1,24 @@
+import type { Metadata } from 'next'
+
+const title = 'Aura Apartment 4 — Quiet Balcony Serenity | Athens Urban Vibes'
+const description =
+  'Newly renovated and designed for couples. A bright open-plan studio with a brand new queen bed, memory foam mattress and a private balcony for quiet mornings or evening wine. Located in a calm, safe neighbourhood — yet just 7 minutes from the metro and all of Athens. Everything here is fresh, clean and thoughtfully curated. The perfect romantic base.'
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: {
+    canonical: '/athens-urban-vibes/aura-apt4',
+  },
+  openGraph: {
+    title,
+    description,
+    url: '/athens-urban-vibes/aura-apt4',
+    type: 'website',
+    images: ['/miron18/apt4/cover.jpg'],
+  },
+}
+
 const breadcrumbLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
