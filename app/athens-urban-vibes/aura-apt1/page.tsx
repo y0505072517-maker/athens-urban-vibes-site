@@ -8,11 +8,11 @@ const APT = {
   name: "Aura Apartment 1",
   tagline: "Urban Base No. 1",
   subtitle: "7 MIN FROM METRO · FRONT-FACING · SLEEPS 4 · FULLY RENOVATED",
-  description: `A light-filled, front-facing apartment in the heart of Athens — surrounded by the city's best cafés and restaurants. Fully renovated to a high standard with natural wood finishes, a premium queen bed, full kitchen and fast Wi-Fi. Sleeps 4, with self check-in and a 7-minute walk to Victoria metro station.`,
+  description: `A light-filled, front-facing apartment at Miron 18, fully renovated with warm natural-wood finishes. It has a full kitchen, a comfortable double bed plus a sofa bed that lets it sleep up to four, and Wi-Fi throughout. Self check-in, and just a 7-minute walk from Victoria metro station — an easy base for exploring Athens.`,
   guests: 4, beds: 1, baths: 1, sleeps: "1 Queen Bed",
   airbnbUrl: "https://he.airbnb.com/rooms/1457080095293779783",
   amenities: [
-    { icon: "📶", label: "Fast Wi-Fi" },
+    { icon: "📶", label: "Wi-Fi" },
     { icon: "☕", label: "Nespresso" },
     { icon: "❄️", label: "Air Conditioning" },
     { icon: "🪟", label: "Front-Facing" },
