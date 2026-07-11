@@ -129,6 +129,30 @@ const faqLd = {
         text: "You'll receive entry instructions before arrival and let yourself in with a smart lock. No key pickup or meeting required.",
       },
     },
+    {
+      "@type": "Question",
+      name: "Which apartments are best for couples?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Apartments 4 and 5 each sleep two guests with one double bed — a good fit for couples. All apartments are fully renovated with self check-in.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which apartments fit a family or group of four?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Apartments 1, 2 and 3 each sleep up to four guests. Apartment 2 has two beds; Apartments 1 and 3 have a double bed plus a sofa bed.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How close is the metro?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Victoria metro station is a 7-minute walk from Miron 18.",
+      },
+    },
   ],
 };
 
@@ -286,6 +310,34 @@ export default function UrbanVibesLobby() {
           </h2>
           <p style={{ color: "#a1a1aa", marginTop: "14px", fontSize: "1.1rem" }}>
             {"Every apartment has self check-in with a smart lock — available 24/7. Whether your flight lands in the afternoon or at 2 AM, you can let yourself in at any hour. You'll receive simple entry instructions before you arrive, so there's no waiting and no key handover."}
+          </p>
+        </section>
+
+        {/* FAQ — reuses the self check-in section pattern (card h2 + subtitle p); no new styles */}
+        <section style={{ textAlign: "center", marginTop: "50px" }}>
+          <h2 style={{ fontSize: "1.5rem", margin: "12px 0", lineHeight: 1.2 }}>
+            Which apartments are best for couples?
+          </h2>
+          <p style={{ color: "#a1a1aa", marginTop: "14px", fontSize: "1.1rem" }}>
+            {"Apartments 4 and 5 each sleep two guests with one double bed — a good fit for couples. All apartments are fully renovated with self check-in."}
+          </p>
+        </section>
+
+        <section style={{ textAlign: "center", marginTop: "50px" }}>
+          <h2 style={{ fontSize: "1.5rem", margin: "12px 0", lineHeight: 1.2 }}>
+            Which apartments fit a family or group of four?
+          </h2>
+          <p style={{ color: "#a1a1aa", marginTop: "14px", fontSize: "1.1rem" }}>
+            {"Apartments 1, 2 and 3 each sleep up to four guests. Apartment 2 has two beds; Apartments 1 and 3 have a double bed plus a sofa bed."}
+          </p>
+        </section>
+
+        <section style={{ textAlign: "center", marginTop: "50px" }}>
+          <h2 style={{ fontSize: "1.5rem", margin: "12px 0", lineHeight: 1.2 }}>
+            How close is the metro?
+          </h2>
+          <p style={{ color: "#a1a1aa", marginTop: "14px", fontSize: "1.1rem" }}>
+            {"Victoria metro station is a 7-minute walk from Miron 18."}
           </p>
         </section>
       </div>
