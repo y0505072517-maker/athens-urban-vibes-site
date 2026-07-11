@@ -156,6 +156,33 @@ const faqLd = {
   ],
 };
 
+const guestReviews = [
+  {
+    quote: `"Yuval was an excellent and gracious host, quick to respond to my inquiries. Within walking distance there were 2+ grocery stores, coffee shops, the Victoria metro station, restaurants, banks, and a pharmacy — everything one could need."`,
+    attribution: "— Gem, Airbnb guest, 2026",
+  },
+  {
+    quote: `"Very large and clean apartment, the air conditioner works great and the washing machine is a huge plus. The kitchen is fully stocked and clean, which I also appreciated."`,
+    attribution: "— Katherine, Airbnb guest, 2025",
+  },
+  {
+    quote: `"This apartment is wonderful! It is clean and has all the amenities you need for a nice city visit in Athens. It's very close to the Viktoria metro station. I arrived early and could check in early — that's the service that makes a stay extra nice!"`,
+    attribution: "— Jelle, Airbnb guest, 2026",
+  },
+  {
+    quote: `"I loved staying at this cozy, modern and beautiful apartment. It's a walkable distance from both the trains and trolley buses, and it also has a beautiful balcony. Yuval was helpful and understanding — I would highly recommend staying here."`,
+    attribution: "— Elvyn, Airbnb guest, 2025",
+  },
+  {
+    quote: `"The studio apartment was clean, with modern and fresh renovations. It was clear that the host took great care of every detail. The neighborhood is quiet and cozy — lovely atmosphere and excellent location. Highly recommended!"`,
+    attribution: "— Veaceslav, Airbnb guest, 2025",
+  },
+  {
+    quote: `"Best host ever — he made his lovely apartment feel like home, from the coffee to a bottle of wine to the cookies with your tea. I recommend everyone to stay here when you visit Athens!"`,
+    attribution: "— Carla, Airbnb guest, 2025",
+  },
+];
+
 export default function UrbanVibesLobby() {
   return (
     <main
@@ -339,6 +366,21 @@ export default function UrbanVibesLobby() {
           <p style={{ color: "#a1a1aa", marginTop: "14px", fontSize: "1.1rem" }}>
             {"Victoria metro station is a 7-minute walk from Miron 18."}
           </p>
+        </section>
+
+        {/* Guest Reviews — reuses the self check-in / FAQ section pattern (card h2 + subtitle p; attribution reuses the back-link #888/12px values); no new styles */}
+        <section style={{ textAlign: "center", marginTop: "50px" }}>
+          <h2 style={{ fontSize: "1.5rem", margin: "12px 0", lineHeight: 1.2 }}>
+            Guest Reviews
+          </h2>
+          {guestReviews.map((r, i) => (
+            <div key={i} style={{ marginTop: "30px" }}>
+              <p style={{ color: "#a1a1aa", fontSize: "1.1rem" }}>{r.quote}</p>
+              <p style={{ color: "#888", fontSize: "12px", letterSpacing: "1px" }}>
+                {r.attribution}
+              </p>
+            </div>
+          ))}
         </section>
       </div>
     </main>
