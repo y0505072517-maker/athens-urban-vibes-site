@@ -368,6 +368,24 @@ export default function UrbanVibesLobby() {
           </p>
         </section>
 
+        {/* Neighbourhood guide link — reuses the subtitle p + gold link styling; no new styles */}
+        <section style={{ textAlign: "center", marginTop: "50px" }}>
+          <p style={{ color: "#a1a1aa", fontSize: "1.1rem" }}>
+            {"New to the area? "}
+            <Link
+              href="/victoria-athens-guide"
+              style={{
+                color: "#D4AF37",
+                textDecoration: "none",
+                borderBottom: "1px solid #D4AF37",
+                paddingBottom: "3px",
+              }}
+            >
+              Read our honest Victoria neighbourhood guide.
+            </Link>
+          </p>
+        </section>
+
         {/* Guest Reviews — reuses the self check-in / FAQ section pattern (card h2 + subtitle p; attribution reuses the back-link #888/12px values); no new styles */}
         <section style={{ textAlign: "center", marginTop: "50px" }}>
           <h2 style={{ fontSize: "1.5rem", margin: "12px 0", lineHeight: 1.2 }}>
