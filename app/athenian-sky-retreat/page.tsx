@@ -36,6 +36,33 @@ const imageAlts = [
   "Athenian Sky Retreat — apartment in Athens",
 ];
 
+const guestReviews = [
+  {
+    quote: `"The view from the terrace was absolutely breathtaking, even better than in the photos. The penthouse was exactly as described, spotless, and everything worked perfectly. Worth every euro — I would happily return."`,
+    attribution: "— Michal, Airbnb guest, 2025",
+  },
+  {
+    quote: `"Great spot with an incredible panoramic view over the city. Perfect for a quiet getaway or a work trip. Yuval was in touch on check-in day to make sure everything went smoothly."`,
+    attribution: "— Matt, Airbnb guest, 2026",
+  },
+  {
+    quote: `"Staying here was one of the best things we could have done! The view was amazing, and the private patio and everything you could think of was included. So responsive when we needed help."`,
+    attribution: "— Brenda, Airbnb guest, 2025",
+  },
+  {
+    quote: `"We had a great time! The apartment is very private and quiet. The large balcony and the view are such a treat. It's in a residential area which was great for getting away from the busy touristic areas."`,
+    attribution: "— Tal, Airbnb guest, 2026",
+  },
+  {
+    quote: `"The views are magnificent and the apartment has much more than I needed. The communication with the host couldn't be better — certainly one of the best Airbnbs I've ever been to, and worth every penny."`,
+    attribution: "— Pedro, Airbnb guest, 2025",
+  },
+  {
+    quote: `"Best view in the entire city."`,
+    attribution: "— Jane, Airbnb guest, 2026",
+  },
+];
+
 export default function SkyRetreatPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImg, setCurrentImg] = useState('');
@@ -154,6 +181,19 @@ export default function SkyRetreatPage() {
             With Wi-Fi throughout and plenty of outdoor seating, the rooftop doubles as an open-air workspace — a favorite spot for remote workers and longer stays.
           </p>
         </div>
+      </section>
+
+      {/* Guest Reviews — reuses the rooftop section pattern (gold eyebrow + body paragraph; attribution reuses text-zinc-500 text-sm); no new styles */}
+      <section className="relative z-10 max-w-5xl mx-auto px-6 mb-24 text-center">
+        <div className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-bold mb-4">Guest Reviews</div>
+        {guestReviews.map((r, i) => (
+          <div key={i} className={i === guestReviews.length - 1 ? "" : "mb-12"}>
+            <p className="text-lg text-zinc-400 font-light leading-relaxed max-w-3xl mx-auto">
+              {r.quote}
+            </p>
+            <p className="text-zinc-500 text-sm">{r.attribution}</p>
+          </div>
+        ))}
       </section>
 
       {/* Gallery */}
