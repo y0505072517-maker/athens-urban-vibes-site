@@ -1,4 +1,24 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+const title = "Miron 18 | Five Boutique Apartments — Athens Urban Vibes";
+const description =
+  "Five fully renovated, self check-in apartments at Miron 18, Athens, a 7-minute walk from the metro. Modern boutique city living hosted by Superhost Yuval.";
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: {
+    canonical: "/athens-urban-vibes",
+  },
+  openGraph: {
+    title,
+    description,
+    url: "/athens-urban-vibes",
+    type: "website",
+    images: ["/miron18/apt1/cover.jpg"],
+  },
+};
 
 const apartments = [
   {
