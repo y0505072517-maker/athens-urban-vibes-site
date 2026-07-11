@@ -79,6 +79,25 @@ const breadcrumbLd = {
   ],
 };
 
+const lodgingLd = {
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  name: "Athens Urban Vibes — Miron 18",
+  url: "https://www.athensurbanvibes.com/athens-urban-vibes",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Miron 18",
+    addressLocality: "Athens",
+    postalCode: "104 34",
+    addressCountry: "GR",
+  },
+  parentOrganization: {
+    "@type": "Organization",
+    name: "Athens Urban Vibes",
+    url: "https://www.athensurbanvibes.com",
+  },
+};
+
 export default function UrbanVibesLobby() {
   return (
     <main
@@ -94,6 +113,12 @@ export default function UrbanVibesLobby() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(lodgingLd).replace(/</g, "\\u003c"),
         }}
       />
       <div style={{ maxWidth: "1300px", margin: "0 auto" }}>

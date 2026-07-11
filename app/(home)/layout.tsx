@@ -23,18 +23,12 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'LodgingBusiness',
+  '@type': 'Organization',
   name: 'Athens Urban Vibes',
   url: 'https://www.athensurbanvibes.com',
   logo: 'https://www.athensurbanvibes.com/logo.png',
   description:
-    'Fully renovated boutique apartments and a rooftop suite in Athens, with self check-in, hosted by Airbnb Superhost Yuval.',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Miron 18',
-    addressLocality: 'Athens',
-    addressCountry: 'GR',
-  },
+    'Athens Urban Vibes is a boutique hospitality brand offering fully renovated apartments and a rooftop suite across Athens, with self check-in, hosted by Airbnb Superhost Yuval.',
   areaServed: 'Athens, Greece',
 }
 

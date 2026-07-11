@@ -41,6 +41,25 @@ const breadcrumbLd = {
   ],
 }
 
+const lodgingLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  name: 'Athenian Sky Retreat',
+  url: 'https://www.athensurbanvibes.com/athenian-sky-retreat',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Klisovou 4',
+    addressLocality: 'Athens',
+    postalCode: '113 63',
+    addressCountry: 'GR',
+  },
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'Athens Urban Vibes',
+    url: 'https://www.athensurbanvibes.com',
+  },
+}
+
 export default function SkyRetreatLayout({
   children,
 }: {
@@ -52,6 +71,12 @@ export default function SkyRetreatLayout({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(lodgingLd).replace(/</g, '\\u003c'),
         }}
       />
       {children}
