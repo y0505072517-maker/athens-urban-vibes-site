@@ -96,6 +96,17 @@ const lodgingLd = {
     name: "Athens Urban Vibes",
     url: "https://www.athensurbanvibes.com",
   },
+  sameAs: [
+    "https://he.airbnb.com/rooms/1457080095293779783",
+    "https://he.airbnb.com/rooms/1457082891737996951",
+    "https://www.booking.com/hotel/gr/athens-urban-vibes-2-backyard-bliss-patio.he.html",
+    "https://he.airbnb.com/rooms/1457136143596427521",
+    "https://www.booking.com/hotel/gr/athens-urban-vibes-3-bright-front-apt-sunny.he.html",
+    "https://he.airbnb.com/rooms/1457139500098527364",
+    "https://www.booking.com/hotel/gr/athens-urban-vibes-4-quiet-balcony-peaceful.he.html",
+    "https://he.airbnb.com/rooms/1457142085700844192",
+    "https://www.booking.com/hotel/gr/athens-urban-vibes-5-cozy-balcony-renovated.he.html",
+  ],
 };
 
 export default function UrbanVibesLobby() {

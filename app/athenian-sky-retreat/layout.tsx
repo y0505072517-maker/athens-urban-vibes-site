@@ -58,6 +58,11 @@ const lodgingLd = {
     name: 'Athens Urban Vibes',
     url: 'https://www.athensurbanvibes.com',
   },
+  sameAs: [
+    'https://www.instagram.com/athenian_sky_retreat',
+    'https://he.airbnb.com/rooms/1335381285857416232',
+    'https://www.booking.com/hotel/gr/athenian-sky-retreat.he.html',
+  ],
 }
 
 export default function SkyRetreatLayout({

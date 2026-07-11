@@ -30,6 +30,8 @@ const jsonLd = {
   description:
     'Athens Urban Vibes is a boutique hospitality brand offering fully renovated apartments and a rooftop suite across Athens, with self check-in, hosted by Airbnb Superhost Yuval.',
   areaServed: 'Athens, Greece',
+  // TODO: add a brand-level `sameAs` (e.g. the Athens Urban Vibes Instagram)
+  // once the official handle is confirmed. Not added yet — unconfirmed.
 }
 
 export default function HomeLayout({ children }: { children: React.ReactNode }) {
