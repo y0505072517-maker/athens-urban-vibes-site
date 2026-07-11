@@ -1,0 +1,30 @@
+import type { MetadataRoute } from 'next'
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    {
+      url: 'https://www.athensurbanvibes.com/',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/athens-urban-vibes',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/athenian-sky-retreat',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/athens-urban-vibes/aura-apt1',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/athens-urban-vibes/aura-apt2',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/athens-urban-vibes/aura-apt3',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/athens-urban-vibes/aura-apt4',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/athens-urban-vibes/aura-apt5',
+    },
+  ]
+}
