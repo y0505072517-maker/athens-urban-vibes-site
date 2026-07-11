@@ -61,7 +61,7 @@ export default function AuraApt1Page() {
       <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 30px 50px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
         {APT.images.map((src, i) => (
           <div key={i} onClick={() => { setCurrentImg(src); setLightboxOpen(true); }} style={{ position: 'relative', aspectRatio: '4/3', borderRadius: '12px', overflow: 'hidden', cursor: 'pointer', border: '1px solid #27272a' }}>
-            <Image src={src} alt={`Photo ${i + 1}`} fill style={{ objectFit: 'cover' }} />
+            <Image src={src} alt={`Athens Urban Vibes — ${APT.name}, interior — photo ${i + 1}`} fill style={{ objectFit: 'cover' }} />
           </div>
         ))}
       </section>
@@ -114,9 +114,9 @@ export default function AuraApt1Page() {
 
       {lightboxOpen && (
         <div onClick={() => setLightboxOpen(false)} style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.97)', zIndex: 50, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
-          <button onClick={() => setLightboxOpen(false)} style={{ position: 'absolute', top: '20px', right: '30px', background: 'none', border: 'none', color: '#fff', fontSize: '3rem', cursor: 'pointer' }}>×</button>
+          <button aria-label="Close image" onClick={() => setLightboxOpen(false)} style={{ position: 'absolute', top: '20px', right: '30px', background: 'none', border: 'none', color: '#fff', fontSize: '3rem', cursor: 'pointer' }}>×</button>
           <div style={{ position: 'relative', width: '100%', maxWidth: '1000px', height: '80vh' }}>
-            <Image src={currentImg} alt="Enlarged" fill style={{ objectFit: 'contain' }} />
+            <Image src={currentImg} alt={`Athens Urban Vibes — ${APT.name}, interior`} fill style={{ objectFit: 'contain' }} />
           </div>
         </div>
       )}
