@@ -20,6 +20,22 @@ const RETREAT = {
   ],
 };
 
+// Per-image alt text (aligned to RETREAT.images by index).
+// Terrace photos use the owner-verified visual facts; interior photos are
+// described from the photos and match the page's existing highlights.
+const imageAlts = [
+  "Athenian Sky Retreat — private rooftop terrace with a cushioned lounge sofa, outdoor dining set and string lights, overlooking Athens at sunset, Athens",
+  "Athenian Sky Retreat — private rooftop terrace under a pergola with string lights and potted plants, with panoramic views over Athens and the surrounding mountains, Athens",
+  "Athenian Sky Retreat — private rooftop terrace with pergola, string lights, a cushioned lounge sofa and an outdoor dining table and chairs, Athens",
+  "Athenian Sky Retreat — bedroom with a double bed and fitted wardrobes, Athens",
+  "Athenian Sky Retreat — bedroom with a double bed beside the ensuite marble bathroom, Athens",
+  "Athenian Sky Retreat — living room with a sofa and wall-mounted TV, Athens",
+  "Athenian Sky Retreat — open-plan kitchen and dining area, Athens",
+  "Athenian Sky Retreat — fully equipped kitchen with oven and terrazzo splashback, Athens",
+  "Athenian Sky Retreat — marble bathroom with a walk-in rain shower, Athens",
+  "Athenian Sky Retreat — apartment in Athens",
+];
+
 export default function SkyRetreatPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImg, setCurrentImg] = useState('');
@@ -46,7 +62,7 @@ export default function SkyRetreatPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black z-10" />
         <Image
           src="/sky-retreat/cover.jpg"
-          alt="Athenian Sky Retreat"
+          alt="Athenian Sky Retreat — private rooftop terrace with a cushioned lounge sofa, outdoor dining set and pergola string lights, overlooking Athens and the surrounding mountains at dusk, Athens"
           fill
           className="object-cover opacity-75"
           priority
@@ -149,7 +165,7 @@ export default function SkyRetreatPage() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {RETREAT.images.map((src, i) => (
             <div key={i} onClick={() => openLightbox(src)} className="relative aspect-square rounded-xl overflow-hidden bg-zinc-900 cursor-pointer group border border-zinc-800 hover:border-[#D4AF37]/50 transition-all">
-              <Image src={src} alt={`Athens Urban Vibes — Athenian Sky Retreat, interior — photo ${i + 1}`} fill className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" unoptimized />
+              <Image src={src} alt={imageAlts[i] ?? "Athenian Sky Retreat, Athens"} fill className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" unoptimized />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
             </div>
           ))}
@@ -186,7 +202,7 @@ export default function SkyRetreatPage() {
         <div className="fixed inset-0 bg-black/97 z-50 flex items-center justify-center p-4 backdrop-blur-sm" onClick={() => setLightboxOpen(false)}>
           <button aria-label="Close image" className="absolute top-6 right-8 text-zinc-500 hover:text-white text-5xl font-thin transition-colors">×</button>
           <div className="relative w-full max-w-5xl h-[85vh]">
-            <Image src={currentImg} alt="Athens Urban Vibes — Athenian Sky Retreat, interior" fill className="object-contain" />
+            <Image src={currentImg} alt="Athenian Sky Retreat, Athens" fill className="object-contain" />
           </div>
         </div>
       )}
