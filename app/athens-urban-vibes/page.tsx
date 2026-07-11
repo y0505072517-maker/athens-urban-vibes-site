@@ -16,6 +16,8 @@ export const metadata: Metadata = {
     description,
     url: "/athens-urban-vibes",
     type: "website",
+    siteName: "Athens Urban Vibes",
+    locale: "en_US",
     images: ["/miron18/apt1/cover.jpg"],
   },
 };
@@ -58,6 +60,55 @@ const apartments = [
   },
 ];
 
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.athensurbanvibes.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Miron 18",
+      item: "https://www.athensurbanvibes.com/athens-urban-vibes",
+    },
+  ],
+};
+
+const lodgingLd = {
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  name: "Athens Urban Vibes — Miron 18",
+  url: "https://www.athensurbanvibes.com/athens-urban-vibes",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Miron 18",
+    addressLocality: "Athens",
+    postalCode: "104 34",
+    addressCountry: "GR",
+  },
+  parentOrganization: {
+    "@type": "Organization",
+    name: "Athens Urban Vibes",
+    url: "https://www.athensurbanvibes.com",
+  },
+  sameAs: [
+    "https://he.airbnb.com/rooms/1457080095293779783",
+    "https://he.airbnb.com/rooms/1457082891737996951",
+    "https://www.booking.com/hotel/gr/athens-urban-vibes-2-backyard-bliss-patio.he.html",
+    "https://he.airbnb.com/rooms/1457136143596427521",
+    "https://www.booking.com/hotel/gr/athens-urban-vibes-3-bright-front-apt-sunny.he.html",
+    "https://he.airbnb.com/rooms/1457139500098527364",
+    "https://www.booking.com/hotel/gr/athens-urban-vibes-4-quiet-balcony-peaceful.he.html",
+    "https://he.airbnb.com/rooms/1457142085700844192",
+    "https://www.booking.com/hotel/gr/athens-urban-vibes-5-cozy-balcony-renovated.he.html",
+  ],
+};
+
 export default function UrbanVibesLobby() {
   return (
     <main
@@ -69,6 +120,18 @@ export default function UrbanVibesLobby() {
         fontFamily: "sans-serif",
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(lodgingLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
         <header style={{ textAlign: "center", marginBottom: "50px" }}>
           <Link

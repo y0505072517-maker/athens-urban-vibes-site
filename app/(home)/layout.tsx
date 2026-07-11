@@ -15,10 +15,34 @@ export const metadata: Metadata = {
     description,
     url: '/',
     type: 'website',
+    siteName: 'Athens Urban Vibes',
+    locale: 'en_US',
     images: ['/logo.png'],
   },
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Athens Urban Vibes',
+  url: 'https://www.athensurbanvibes.com',
+  logo: 'https://www.athensurbanvibes.com/logo.png',
+  description:
+    'Athens Urban Vibes is a boutique hospitality brand offering fully renovated apartments and a rooftop suite across Athens, with self check-in, hosted by Airbnb Superhost Yuval.',
+  areaServed: 'Athens, Greece',
+  sameAs: ['https://www.instagram.com/athens_urban_vibes'],
+}
+
 export default function HomeLayout({ children }: { children: React.ReactNode }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      {children}
+    </>
+  )
 }

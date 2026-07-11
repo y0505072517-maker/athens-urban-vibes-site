@@ -16,8 +16,52 @@ export const metadata: Metadata = {
     description,
     url: '/athenian-sky-retreat',
     type: 'website',
+    siteName: 'Athens Urban Vibes',
+    locale: 'en_US',
     images: ['/sky-retreat/cover.jpg'],
   },
+}
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://www.athensurbanvibes.com/',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Athenian Sky Retreat',
+      item: 'https://www.athensurbanvibes.com/athenian-sky-retreat',
+    },
+  ],
+}
+
+const lodgingLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  name: 'Athenian Sky Retreat',
+  url: 'https://www.athensurbanvibes.com/athenian-sky-retreat',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Klisovou 4',
+    addressLocality: 'Athens',
+    postalCode: '113 63',
+    addressCountry: 'GR',
+  },
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'Athens Urban Vibes',
+    url: 'https://www.athensurbanvibes.com',
+  },
+  sameAs: [
+    'https://he.airbnb.com/rooms/1335381285857416232',
+    'https://www.booking.com/hotel/gr/athenian-sky-retreat.he.html',
+  ],
 }
 
 export default function SkyRetreatLayout({
@@ -25,5 +69,21 @@ export default function SkyRetreatLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(lodgingLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      {children}
+    </>
+  )
 }

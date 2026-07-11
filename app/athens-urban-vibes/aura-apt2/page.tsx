@@ -76,7 +76,7 @@ export default function AuraApt2Page() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {APT.images.map((src, i) => (
             <div key={i} onClick={() => openLightbox(src)} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-zinc-900 cursor-pointer group border border-zinc-800 hover:border-[#D4AF37]/50 transition-all">
-              <Image src={src} alt={`${APT.name} photo ${i + 1}`} fill className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" unoptimized />
+              <Image src={src} alt={`Athens Urban Vibes — ${APT.name}, interior — photo ${i + 1}`} fill className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" unoptimized />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
             </div>
           ))}
@@ -136,9 +136,9 @@ export default function AuraApt2Page() {
 
       {lightboxOpen && (
         <div className="fixed inset-0 bg-black/97 z-50 flex items-center justify-center p-4 backdrop-blur-sm" onClick={() => setLightboxOpen(false)}>
-          <button className="absolute top-6 right-8 text-zinc-500 hover:text-white text-5xl font-thin transition-colors">×</button>
+          <button aria-label="Close image" className="absolute top-6 right-8 text-zinc-500 hover:text-white text-5xl font-thin transition-colors">×</button>
           <div className="relative w-full max-w-5xl h-[85vh]">
-            <Image src={currentImg} alt="Enlarged view" fill className="object-contain" />
+            <Image src={currentImg} alt={`Athens Urban Vibes — ${APT.name}, interior`} fill className="object-contain" />
           </div>
         </div>
       )}

@@ -8,6 +8,17 @@ export const metadata = {
   metadataBase: new URL('https://www.athensurbanvibes.com'),
   title: 'Athens Urban Vibes | Boutique Hospitality',
   description: 'Making people smile through exceptional boutique stays in Athens.',
+  openGraph: {
+    siteName: 'Athens Urban Vibes',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
