@@ -384,6 +384,20 @@ export default function UrbanVibesLobby() {
               Read our honest Victoria neighbourhood guide.
             </Link>
           </p>
+          <p style={{ color: "#a1a1aa", fontSize: "1.1rem", marginTop: "14px" }}>
+            {"Exploring the city? "}
+            <Link
+              href="/host-recommendations"
+              style={{
+                color: "#D4AF37",
+                textDecoration: "none",
+                borderBottom: "1px solid #D4AF37",
+                paddingBottom: "3px",
+              }}
+            >
+              See our host recommendations.
+            </Link>
+          </p>
         </section>
 
         {/* Guest Reviews — reuses the self check-in / FAQ section pattern (card h2 + subtitle p; attribution reuses the back-link #888/12px values); no new styles */}
