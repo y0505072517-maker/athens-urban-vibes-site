@@ -160,6 +160,22 @@ const categories = [
     ],
   },
   {
+    id: "wine",
+    emoji: "🍷",
+    title: "Wine",
+    jumpLabel: "Wine",
+    venues: [
+      {
+        emoji: "🍷",
+        heading: "Cinque Wine & Deli — Greek Wine Bar & Deli",
+        mapName: "Cinque Wine Deli",
+        desc: `A warm, family-run wine bar in the heart of Monastiraki, and an excellent place to discover Greek wine. They pour a wide range of Greek labels by the glass, paired with artisan cheeses and charcuterie, and the sommelier-led tastings are a genuinely friendly introduction to Greek varieties — whether you know wine well or are just starting out.`,
+        label: "Address",
+        address: "Voreou 10",
+      },
+    ],
+  },
+  {
     id: "sweets",
     emoji: "🍫",
     title: "Sweets & Traditional",
