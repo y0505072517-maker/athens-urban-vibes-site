@@ -18,6 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://www.athensurbanvibes.com/victoria-athens-guide',
     },
     {
+      url: 'https://www.athensurbanvibes.com/host-recommendations',
+    },
+    {
       url: 'https://www.athensurbanvibes.com/athens-urban-vibes/aura-apt1',
     },
     {
