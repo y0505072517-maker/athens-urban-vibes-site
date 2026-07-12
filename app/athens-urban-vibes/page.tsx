@@ -398,6 +398,20 @@ export default function UrbanVibesLobby() {
               See our host recommendations.
             </Link>
           </p>
+          <p style={{ color: "#a1a1aa", fontSize: "1.1rem", marginTop: "14px" }}>
+            {"Planning your trip? "}
+            <Link
+              href="/guides"
+              style={{
+                color: "#D4AF37",
+                textDecoration: "none",
+                borderBottom: "1px solid #D4AF37",
+                paddingBottom: "3px",
+              }}
+            >
+              Browse all our Athens guides.
+            </Link>
+          </p>
         </section>
 
         {/* Guest Reviews — reuses the self check-in / FAQ section pattern (card h2 + subtitle p; attribution reuses the back-link #888/12px values); no new styles */}
