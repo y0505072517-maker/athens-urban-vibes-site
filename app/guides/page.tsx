@@ -49,6 +49,18 @@ const cards = [
     teaser: a.description,
   })),
   {
+    href: "/guides/parks-beaches-gyms",
+    title: "Walks, Waves & Workouts — Parks, Beaches & Gyms in Athens",
+    teaser:
+      "Parks, beaches and gyms near your Athens Urban Vibes stay — walks, day trips to the Athenian Riviera, and where to work out, from your host.",
+  },
+  {
+    href: "/guides/top-athens-attractions",
+    title: "Top 10 Must-See Attractions in Athens",
+    teaser:
+      "Ten must-see Athens attractions with direct Google Maps links — the classic landmarks every guest asks us about, in one practical list.",
+  },
+  {
     href: "/victoria-athens-guide",
     title: "Staying Near Victoria Metro — An Honest Local Guide",
     teaser:
