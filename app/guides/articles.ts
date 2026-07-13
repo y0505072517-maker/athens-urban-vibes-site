@@ -35,6 +35,18 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
+        text: `If you'd prefer to arrange a driver in advance, we're happy to recommend Nectarius — a courteous, reliable driver we personally use, especially for airport pick-ups.`,
+      },
+      {
+        type: "p",
+        text: `Nectarius — +30 698 081 6461`,
+      },
+      {
+        type: "p",
+        text: `Once you're in the city, the FREE NOW and Uber apps both work well in Athens for getting around — both connect you to licensed taxis.`,
+      },
+      {
+        type: "p",
         text: `From Victoria Metro Station, Miron 18 is a **verified 7-minute walk**.`,
       },
       { type: "h2", text: "What Kind of Area Is Victoria?" },
