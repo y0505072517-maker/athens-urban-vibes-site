@@ -42,6 +42,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://www.athensurbanvibes.com/guides/top-athens-attractions',
     },
     {
+      url: 'https://www.athensurbanvibes.com/guides/nearby-essentials',
+    },
+    {
       url: 'https://www.athensurbanvibes.com/athens-urban-vibes/aura-apt1',
     },
     {
