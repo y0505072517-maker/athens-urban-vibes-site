@@ -21,6 +21,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://www.athensurbanvibes.com/host-recommendations',
     },
     {
+      url: 'https://www.athensurbanvibes.com/guides',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/guides/getting-to-miron-18',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/guides/athenian-sky-retreat-rooftop',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/guides/which-apartment',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/guides/car-free-athens',
+    },
+    {
       url: 'https://www.athensurbanvibes.com/athens-urban-vibes/aura-apt1',
     },
     {
