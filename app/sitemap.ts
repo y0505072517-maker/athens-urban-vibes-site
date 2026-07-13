@@ -36,6 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://www.athensurbanvibes.com/guides/car-free-athens',
     },
     {
+      url: 'https://www.athensurbanvibes.com/guides/parks-beaches-gyms',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/guides/top-athens-attractions',
+    },
+    {
       url: 'https://www.athensurbanvibes.com/athens-urban-vibes/aura-apt1',
     },
     {
