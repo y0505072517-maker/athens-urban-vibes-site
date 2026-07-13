@@ -61,6 +61,12 @@ const cards = [
       "Ten must-see Athens attractions with direct Google Maps links — the classic landmarks every guest asks us about, in one practical list.",
   },
   {
+    href: "/guides/nearby-essentials",
+    title: "Nearby Essentials at Miron 18",
+    teaser:
+      "Pharmacies, bakeries, supermarkets, transport and a recommended taxi driver — the handy everyday spots near Miron 18, from your Athens Urban Vibes host.",
+  },
+  {
     href: "/victoria-athens-guide",
     title: "Staying Near Victoria Metro — An Honest Local Guide",
     teaser:
