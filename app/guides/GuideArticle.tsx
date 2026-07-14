@@ -120,6 +120,33 @@ export function GuideArticle({ article }: { article: Article }) {
               </ul>
             );
           }
+          if (block.type === "plink") {
+            return (
+              <p
+                key={i}
+                style={{
+                  color: "#a1a1aa",
+                  fontSize: "1.1rem",
+                  marginTop: "14px",
+                  textAlign: "center",
+                }}
+              >
+                {renderInline(block.before)}
+                <Link
+                  href={block.href}
+                  style={{
+                    color: "#D4AF37",
+                    textDecoration: "none",
+                    borderBottom: "1px solid #D4AF37",
+                    paddingBottom: "3px",
+                  }}
+                >
+                  {block.linkText}
+                </Link>
+                {renderInline(block.after)}
+              </p>
+            );
+          }
           return (
             <p
               key={i}

@@ -45,6 +45,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://www.athensurbanvibes.com/guides/nearby-essentials',
     },
     {
+      url: 'https://www.athensurbanvibes.com/guides/parthenon-story',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/guides/ancient-agora-athens',
+    },
+    {
       url: 'https://www.athensurbanvibes.com/athens-urban-vibes/aura-apt1',
     },
     {
