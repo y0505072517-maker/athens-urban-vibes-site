@@ -3,7 +3,14 @@ import type { Metadata } from "next";
 export type Block =
   | { type: "p"; text: string }
   | { type: "h2"; text: string }
-  | { type: "ul"; items: string[] };
+  | { type: "ul"; items: string[] }
+  | {
+      type: "plink";
+      before: string;
+      linkText: string;
+      href: string;
+      after: string;
+    };
 
 export type Article = {
   slug: string;
@@ -269,6 +276,172 @@ export const ARTICLES: Article[] = [
       {
         type: "p",
         text: `Athens Urban Vibes is a growing network, with a third location currently in development.`,
+      },
+    ],
+  },
+  {
+    slug: "parthenon-story",
+    title: "The Parthenon: The Story Behind the Symbol of Athens",
+    description:
+      "Discover the verified story of the Parthenon, its architecture, purpose and remarkable journey through the history of Athens.",
+    blocks: [
+      {
+        type: "p",
+        text: `The Parthenon is an ancient temple dedicated to Athena, the patron goddess of Athens. Standing on the Acropolis, the ancient citadel on a limestone hill above the city, it remains one of the best-known symbols of Athens. Understanding its story adds a deeper meaning to every visit.`,
+      },
+      { type: "h2", text: "A Temple Dedicated to Athena" },
+      {
+        type: "p",
+        text: `The Parthenon stands on the Acropolis, overlooking Athens from its limestone hill. It was built as a temple dedicated to Athena, the patron goddess of the city.`,
+      },
+      {
+        type: "p",
+        text: `Construction began in 447 BC under the Athenian statesman Pericles as part of a major rebuilding programme following the Greco-Persian Wars.`,
+      },
+      {
+        type: "p",
+        text: `The project was designed by the architects Ictinus and Callicrates, while the sculptor Phidias supervised the sculptural decoration. The main structure was largely completed by 438 BC, with work on its decoration continuing until around 432 BC.`,
+      },
+      {
+        type: "p",
+        text: `Inside the temple stood a large gold-and-ivory statue of Athena, created by Phidias. For a time, the building also served as a treasury associated with the Delian League and the Athenian empire.`,
+      },
+      { type: "h2", text: "A Remarkable Achievement in Architecture" },
+      {
+        type: "p",
+        text: `The Parthenon was built from Pentelic marble, quarried from Mount Pentelicus, roughly 10 miles (about 16 km) from Athens.`,
+      },
+      {
+        type: "p",
+        text: `It is a Doric-order temple with some Ionic elements, featuring 8 columns on each end and 17 along each side.`,
+      },
+      {
+        type: "p",
+        text: `Its builders also introduced subtle architectural refinements. The columns lean slightly inward and swell gently near the middle, a technique known as entasis, while the base curves upward. Together, these carefully planned features contribute to the building's balanced appearance and demonstrate the extraordinary precision of its design.`,
+      },
+      { type: "h2", text: "A Monument That Survived Centuries of Change" },
+      {
+        type: "p",
+        text: `The Parthenon has witnessed many chapters of history.`,
+      },
+      {
+        type: "p",
+        text: `Over the centuries, it was converted into a Christian church and later into a mosque under Ottoman rule.`,
+      },
+      {
+        type: "p",
+        text: `In 1687, a Venetian bombardment ignited Ottoman munitions stored inside, causing severe damage to the building. Even after this destruction, the Parthenon has remained standing at the heart of one of Athens' best-known ancient sites.`,
+      },
+      {
+        type: "p",
+        text: `Today, the Acropolis is one of Athens' best-known ancient sites, welcoming visitors who wish to experience one of history's most remarkable architectural achievements.`,
+      },
+      { type: "h2", text: "Visiting the Parthenon" },
+      {
+        type: "p",
+        text: `A visit to the Parthenon is more than an opportunity to admire an ancient building. It is a chance to experience a place where architecture, craftsmanship and centuries of history come together in a single monument.`,
+      },
+      {
+        type: "p",
+        text: `During their stay, Athens Urban Vibes guests can include the Acropolis and its ancient monuments as part of their exploration of Athens, discovering the stories that have shaped the city for centuries.`,
+      },
+      {
+        type: "plink",
+        before: "To continue planning your trip, explore ",
+        linkText: "our Top 10 Athens Attractions guide",
+        href: "/guides/top-athens-attractions",
+        after: ".",
+      },
+    ],
+  },
+  {
+    slug: "ancient-agora-athens",
+    title: "The Ancient Agora of Athens: Where Ancient Athens Came to Life",
+    description:
+      "Discover the Ancient Agora of Athens — the city's historic gathering place, birthplace of democracy, still telling its story today.",
+    blocks: [
+      {
+        type: "p",
+        text: `The Ancient Agora of Athens lies below the Acropolis and was the heart of public life in ancient Athens. More than a marketplace, it was a gathering place where citizens traded, talked and participated in civic life. Today, its remarkable monuments offer visitors a deeper understanding of the people and ideas that shaped the city.`,
+      },
+      { type: "h2", text: "The Heart of Public Life" },
+      {
+        type: "p",
+        text: `The word "agora" means "gathering place," and for ancient Athenians, it truly was the centre of everyday public life.`,
+      },
+      {
+        type: "p",
+        text: `Citizens came here to trade, meet one another, exchange ideas and take part in civic life. The Agora became a public civic space early in the 6th century BC, during the time of the lawgiver Solon.`,
+      },
+      {
+        type: "p",
+        text: `It is widely described as a birthplace of democracy, reflecting its close connection with public discussion and civic participation in ancient Athens.`,
+      },
+      {
+        type: "p",
+        text: `The Agora is also associated with some of history's greatest thinkers, including Socrates, whose name remains closely linked with this remarkable place.`,
+      },
+      { type: "h2", text: "The Temple of Hephaestus" },
+      {
+        type: "p",
+        text: `Rising on the hill of Kolonos Agoraios on the western side of the Agora stands the Temple of Hephaestus.`,
+      },
+      {
+        type: "p",
+        text: `The temple was dedicated to Hephaestus, the god of craftsmen and metalworking, and to Athena. It is one of the best-preserved Doric temples in Greece, allowing visitors to appreciate the elegance of ancient Greek architecture.`,
+      },
+      {
+        type: "p",
+        text: `Its remarkable state of preservation is partly due to its later conversion into a Christian church, which helped protect the building through the centuries.`,
+      },
+      {
+        type: "p",
+        text: `For many years, the temple was mistakenly known as the "Theseion," after the hero Theseus, although this attribution was incorrect.`,
+      },
+      { type: "h2", text: "The Stoa of Attalos" },
+      {
+        type: "p",
+        text: `On the eastern side of the Agora stands the Stoa of Attalos, a two-storey covered colonnade with rows of shops on both floors.`,
+      },
+      {
+        type: "p",
+        text: `In many ways, it functioned like an ancient shopping arcade, combining sheltered walkways with places for trade and daily activity.`,
+      },
+      {
+        type: "p",
+        text: `The Stoa was a gift to Athens from King Attalos II of Pergamon, who ruled between 159 and 138 BC.`,
+      },
+      {
+        type: "p",
+        text: `It was destroyed by the invading Herulians in AD 267 before being reconstructed between 1953 and 1956 by the American School of Classical Studies at Athens.`,
+      },
+      {
+        type: "p",
+        text: `Today, the reconstructed Stoa houses the Museum of the Ancient Agora, helping preserve and present the history of this extraordinary site.`,
+      },
+      { type: "h2", text: "A Place That Endures" },
+      {
+        type: "p",
+        text: `The Agora experienced many changes over the centuries. It suffered damage during the Persian attacks of 480/479 BC and later during the invasion of the Herulians in AD 267.`,
+      },
+      {
+        type: "p",
+        text: `Within the site stands the Church of the Holy Apostles, an 11th-century Byzantine church that remains an important part of the Agora's historic landscape.`,
+      },
+      {
+        type: "p",
+        text: `Today, the Ancient Agora invites visitors to experience the setting where public life, philosophy and civic traditions came together beneath the Acropolis.`,
+      },
+      {
+        type: "p",
+        text: `During their stay, Athens Urban Vibes guests can include the Ancient Agora and other historic sites in their plans while exploring Athens and discovering the city's remarkable past.`,
+      },
+      {
+        type: "plink",
+        before: "To discover even more unforgettable places, continue with ",
+        linkText: "our Top 10 Athens Attractions guide",
+        href: "/guides/top-athens-attractions",
+        after: ".",
       },
     ],
   },
