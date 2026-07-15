@@ -147,6 +147,38 @@ export function GuideArticle({ article }: { article: Article }) {
               </p>
             );
           }
+          if (block.type === "plinks") {
+            return (
+              <p
+                key={i}
+                style={{
+                  color: "#a1a1aa",
+                  fontSize: "1.1rem",
+                  marginTop: "14px",
+                  textAlign: "center",
+                }}
+              >
+                {block.parts.map((part, k) =>
+                  "linkText" in part ? (
+                    <Link
+                      key={k}
+                      href={part.href}
+                      style={{
+                        color: "#D4AF37",
+                        textDecoration: "none",
+                        borderBottom: "1px solid #D4AF37",
+                        paddingBottom: "3px",
+                      }}
+                    >
+                      {part.linkText}
+                    </Link>
+                  ) : (
+                    <span key={k}>{renderInline(part.text)}</span>
+                  )
+                )}
+              </p>
+            );
+          }
           return (
             <p
               key={i}

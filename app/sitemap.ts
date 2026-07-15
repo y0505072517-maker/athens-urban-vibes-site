@@ -51,6 +51,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://www.athensurbanvibes.com/guides/ancient-agora-athens',
     },
     {
+      url: 'https://www.athensurbanvibes.com/guides/temple-of-olympian-zeus',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/guides/birth-of-democracy',
+    },
+    {
+      url: 'https://www.athensurbanvibes.com/guides/modern-athens-history',
+    },
+    {
       url: 'https://www.athensurbanvibes.com/athens-urban-vibes/aura-apt1',
     },
     {
