@@ -10,6 +10,10 @@ export type Block =
       linkText: string;
       href: string;
       after: string;
+    }
+  | {
+      type: "plinks";
+      parts: Array<{ text: string } | { linkText: string; href: string }>;
     };
 
 export type Article = {
@@ -442,6 +446,289 @@ export const ARTICLES: Article[] = [
         linkText: "our Top 10 Athens Attractions guide",
         href: "/guides/top-athens-attractions",
         after: ".",
+      },
+    ],
+  },
+  {
+    slug: "temple-of-olympian-zeus",
+    title:
+      "The Temple of Olympian Zeus: Centuries of Ambition in the Heart of Athens",
+    description:
+      "Discover the Temple of Olympian Zeus, its long construction, monumental Corinthian columns and completion under Emperor Hadrian.",
+    blocks: [
+      {
+        type: "p",
+        text: `The Temple of Olympian Zeus, also known as the Olympieion, was dedicated to Zeus, king of the Olympian gods. Begun in the 6th century BC and completed many centuries later under the Roman emperor Hadrian, it is a powerful story of ambition, interruption and survival in the centre of Athens.`,
+      },
+      { type: "h2", text: "A Monument That Took Centuries to Complete" },
+      {
+        type: "p",
+        text: `Construction began in the 6th century BC under the Athenian tyrant Peisistratos and his sons.`,
+      },
+      {
+        type: "p",
+        text: `The project did not continue for long. When the tyranny fell and Athenian democracy was established, construction was abandoned. For centuries, only the foundations remained in place.`,
+      },
+      {
+        type: "p",
+        text: `Work resumed in 174 BC under the Seleucid king Antiochos IV Epiphanes, who employed the Roman architect Cossutius. At this stage, the design was changed to the Corinthian order.`,
+      },
+      {
+        type: "p",
+        text: `The renewed effort also came to a halt. After the death of Antiochos IV, the temple remained unfinished for another long period.`,
+      },
+      {
+        type: "p",
+        text: `Its final completion came under the Roman emperor Hadrian, and the temple was formally dedicated around 132 AD. By that time, many centuries had passed since the first attempt to build it.`,
+      },
+      { type: "h2", text: "A Temple of Extraordinary Scale" },
+      {
+        type: "p",
+        text: `When complete, the Olympieion was one of the largest temples ever built in the ancient world.`,
+      },
+      {
+        type: "p",
+        text: `It had 104 Corinthian columns, each rising to about 17 metres. Their scale created a vast setting for a temple dedicated to Zeus.`,
+      },
+      {
+        type: "p",
+        text: `Inside stood a colossal gold-and-ivory statue of Zeus. The statue reflected the scale and importance of the monument itself.`,
+      },
+      {
+        type: "p",
+        text: `Standing immediately beside the temple is Hadrian's Arch, a Roman triumphal arch. It marked a symbolic boundary between the old Greek city and the new Roman-era Athens built by Hadrian.`,
+      },
+      {
+        type: "p",
+        text: `Together, the temple and the arch represent different periods in the long history of Athens, brought together in the same part of the city.`,
+      },
+      { type: "h2", text: "Damage, Collapse and Survival" },
+      {
+        type: "p",
+        text: `The temple suffered serious damage during the sack of Athens by the Heruli in AD 267.`,
+      },
+      {
+        type: "p",
+        text: `Over time, much of the original structure was lost. One dramatic reminder of its later history remains visible today: in 1852, one of the columns collapsed during a storm and still lies where it fell.`,
+      },
+      {
+        type: "p",
+        text: `Today, only 15 of the original 104 columns remain standing.`,
+      },
+      {
+        type: "p",
+        text: `Although only part of the temple survives, the height and spacing of the remaining columns still communicate the extraordinary scale of the original monument. The fallen column adds another layer to the experience, showing that the site continued to change long after the ancient period.`,
+      },
+      { type: "h2", text: "A Striking Stop in Central Athens" },
+      {
+        type: "p",
+        text: `The Temple of Olympian Zeus stands in central Athens, close to the Acropolis and the National Garden.`,
+      },
+      {
+        type: "p",
+        text: `Its story brings together several different eras: its beginning under Peisistratos and his sons, its revival under Antiochos IV, and its eventual completion under Hadrian.`,
+      },
+      {
+        type: "p",
+        text: `For travellers, the Olympieion offers more than a view of surviving columns. It reveals how one monumental idea passed through centuries of delay before finally being completed.`,
+      },
+      {
+        type: "p",
+        text: `During their stay, Athens Urban Vibes guests can include the Temple of Olympian Zeus among the historic sites they visit while exploring Athens.`,
+      },
+      {
+        type: "plink",
+        before: "Continue your planning with our ",
+        linkText: "Top 10 Athens Attractions guide",
+        href: "/guides/top-athens-attractions",
+        after: ".",
+      },
+    ],
+  },
+  {
+    slug: "birth-of-democracy",
+    title: "How Democracy Began in Ancient Athens",
+    description:
+      "Discover how Solon, Cleisthenes, the Assembly and the Council of 500 shaped the first known democracy in ancient Athens.",
+    blocks: [
+      {
+        type: "p",
+        text: `Ancient Athens developed a political system in which citizens could speak, vote and take part directly in public decisions. Its foundations were laid through early reforms associated with Solon, while the decisive transformation came under Cleisthenes in 508–507 BC. Historians widely regard the system that followed as the first known democracy in the world.`,
+      },
+      { type: "h2", text: "Before Democracy" },
+      {
+        type: "p",
+        text: `Athenian democracy did not appear all at once. It emerged through a long process of reform, political struggle and changes in the organisation of public life.`,
+      },
+      {
+        type: "p",
+        text: `In the early 6th century BC, the Athenian statesman Solon introduced reforms that laid important groundwork for later democracy. He cancelled debts and freed citizens who had been enslaved because of debt. His reforms also strengthened citizen participation through the Assembly, known as the Ecclesia.`,
+      },
+      {
+        type: "p",
+        text: `These changes did not yet create the full democratic system later associated with Athens. The city subsequently came under the rule of tyrants, including Peisistratos and then his son Hippias.`,
+      },
+      {
+        type: "p",
+        text: `The movement towards democracy was therefore gradual. Solon helped prepare the ground, but the major political reorganisation came later.`,
+      },
+      { type: "h2", text: "Cleisthenes and the Democratic Turning Point" },
+      {
+        type: "p",
+        text: `In 508–507 BC, the statesman Cleisthenes introduced sweeping reforms that are credited as the foundation of Athenian democracy.`,
+      },
+      {
+        type: "p",
+        text: `One of his most important changes was the reorganisation of citizens into ten tribes. These tribes were based on where people lived, in their local demes, rather than on family or clan ties.`,
+      },
+      {
+        type: "p",
+        text: `This change reduced the power of aristocratic families and created a political structure based more strongly on local communities.`,
+      },
+      {
+        type: "p",
+        text: `Cleisthenes also established the Boule, or Council of 500 citizens. Representatives were drawn from the ten tribes, and the council prepared matters for discussion and decision by the Assembly.`,
+      },
+      {
+        type: "p",
+        text: `Together, these reforms created a new framework for direct citizen participation in the government of Athens.`,
+      },
+      { type: "h2", text: "The Assembly and the Pnyx" },
+      {
+        type: "p",
+        text: `The word "democracy" comes from the Greek words demos, meaning "the people," and kratos, meaning "power" or "rule." Its literal meaning is therefore "rule by the people."`,
+      },
+      {
+        type: "p",
+        text: `At the centre of the Athenian system stood the Assembly, or Ecclesia. It was the sovereign decision-making body of Athens and was open to adult male citizens.`,
+      },
+      {
+        type: "p",
+        text: `Eligible citizens could speak and vote on laws, war and public policy. Rather than leaving every decision to a small ruling group, the system allowed citizens to take part directly in public decision-making.`,
+      },
+      {
+        type: "p",
+        text: `Assembly meetings were held on the Pnyx, a hillside near the Acropolis. There, citizens gathered to hear arguments, speak and vote on matters affecting the city.`,
+      },
+      { type: "h2", text: "Why Athenian Democracy Still Matters" },
+      {
+        type: "p",
+        text: `The Athenian system did not include everyone who lived in the city. Participation in the Assembly was limited to adult male citizens.`,
+      },
+      {
+        type: "p",
+        text: `Within that citizen body, however, Athens created a direct form of government in which eligible citizens could take part personally in political decisions. This system is widely regarded by historians as the first known democracy in the world.`,
+      },
+      {
+        type: "p",
+        text: `Solon's reforms helped lay the early foundations. Cleisthenes then reshaped the political structure, creating the system most closely connected with the birth of Athenian democracy.`,
+      },
+      {
+        type: "p",
+        text: `Athens Urban Vibes guests are staying in the city where these developments took place and where the idea of rule by citizens became part of political life.`,
+      },
+      {
+        type: "plink",
+        before: "Continue with our ",
+        linkText: "Top 10 Athens Attractions guide",
+        href: "/guides/top-athens-attractions",
+        after:
+          ", including the Acropolis and the Ancient Agora, where travellers can connect with the history of ancient Athens in person.",
+      },
+    ],
+  },
+  {
+    slug: "modern-athens-history",
+    title: "How Modern Athens Grew Around Its Ancient Past",
+    description:
+      "Discover how Athens grew from a small, war-damaged town into a modern European capital while preserving its powerful ancient legacy.",
+    blocks: [
+      {
+        type: "p",
+        text: `Athens has been inhabited for thousands of years, but the modern capital took shape mainly during the last two centuries. Chosen as Greece's capital when it was still a small, war-damaged town, Athens grew through urban planning, migration and major public works while its ancient monuments remained central to its identity.`,
+      },
+      { type: "h2", text: "From a Small Town to a National Capital" },
+      {
+        type: "p",
+        text: `By the time of the Greek War of Independence in the early 19th century, Athens had declined into a small, war-damaged town clustered around the foot of the Acropolis.`,
+      },
+      {
+        type: "p",
+        text: `In 1834, Athens was selected as the capital of the newly independent Kingdom of Greece. The choice was strongly symbolic. The city's ancient significance gave it a special place in the identity of the new state, even though Athens then had only a few thousand residents.`,
+      },
+      {
+        type: "p",
+        text: `The decision transformed the city's future. Athens would no longer remain a small settlement beneath its ancient monuments. It would become the political and urban centre of the new kingdom.`,
+      },
+      { type: "h2", text: "Planning a Modern European City" },
+      {
+        type: "p",
+        text: `Greece's first king, Otto of Bavaria, commissioned a modern plan for the capital. The architects involved included Stamatios Kleanthis and Eduard Schaubert.`,
+      },
+      {
+        type: "p",
+        text: `The plan helped guide the development of new streets and public spaces as Athens expanded. Neoclassical buildings, wide boulevards and public squares became part of an effort to create a modern European capital while maintaining a visible connection with the city's ancient legacy.`,
+      },
+      {
+        type: "p",
+        text: `Protecting that legacy was also part of the rebuilding process. Rules were introduced to safeguard ancient sites, including restrictions on quarrying near certain hills and orders to remove structures that encroached on archaeological areas.`,
+      },
+      {
+        type: "p",
+        text: `Modern Athens was therefore shaped by two ambitions at once: creating a functioning capital and protecting the remains of the ancient city.`,
+      },
+      {
+        type: "p",
+        text: `By the time Athens hosted the first modern Olympic Games in 1896, its population had grown dramatically, to roughly 140,000 residents.`,
+      },
+      { type: "h2", text: "Migration and Rapid Urban Growth" },
+      {
+        type: "p",
+        text: `Athens continued to change during the 20th century.`,
+      },
+      {
+        type: "p",
+        text: `Following the Greco-Turkish War and the events of 1922, more than a million refugees from Asia Minor settled in Greece. The population of Athens rose sharply, and new neighbourhoods grew as the capital absorbed many new residents.`,
+      },
+      {
+        type: "p",
+        text: `This movement of people changed the scale of the city. Athens became larger and more varied, expanding far beyond the small town that had been chosen as the capital in 1834.`,
+      },
+      {
+        type: "p",
+        text: `Another important period of modernisation came when Athens hosted the Olympic Games in 2004. Preparations for the Games prompted major improvements to the city's transport and infrastructure.`,
+      },
+      {
+        type: "p",
+        text: `These changes helped shape the Athens visitors encounter today: an active modern capital whose streets and public spaces carry visible traces of different periods.`,
+      },
+      { type: "h2", text: "Ancient City and Modern Metropolis" },
+      {
+        type: "p",
+        text: `Today, Athens is a large, cosmopolitan capital. Ancient monuments stand within a modern metropolitan area, rather than apart from everyday urban life.`,
+      },
+      {
+        type: "p",
+        text: `That contrast is one of the city's defining qualities. The Acropolis rises above streets shaped by modern planning, while neoclassical buildings and public squares form another layer between ancient Athens and the contemporary city.`,
+      },
+      {
+        type: "p",
+        text: `Athens Urban Vibes guests experience this layered capital today, where the remains of the ancient world exist alongside the life of a modern city.`,
+      },
+      {
+        type: "plinks",
+        parts: [
+          { text: "Continue exploring with our " },
+          {
+            linkText: "Top 10 Athens Attractions guide",
+            href: "/guides/top-athens-attractions",
+          },
+          { text: " and our detailed guides to the " },
+          { linkText: "Parthenon", href: "/guides/parthenon-story" },
+          { text: " and the " },
+          { linkText: "Ancient Agora", href: "/guides/ancient-agora-athens" },
+          { text: "." },
+        ],
       },
     ],
   },
